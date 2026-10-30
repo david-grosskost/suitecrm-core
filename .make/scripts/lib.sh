@@ -3,10 +3,9 @@
 # Variables below are used by the scripts that source this file.
 # shellcheck disable=SC2034
 
-ENV_FILE=".env"
+ENV_FILE=".env"             # versioned: project identity
+LOCAL_ENV_FILE=".env.local" # never versioned: environment and secrets
 NETWORK="proxy"
-LOCAL_DOMAIN="dev.localhost"
-BOUNCER_KEY_FILE="secrets/crowdsec-bouncer.key"
 SCRIPTS="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Prints an error and exits.
@@ -31,60 +30,73 @@ run () {
   "$@"
 }
 
-# Resolves APP_ENV: command-line parameter, then .env (optional), then local.
-# The .env is read without being executed.
+# Reads a KEY=value file into the environment, without executing it.
+# A variable already set (command line, or a file read before) is kept.
+#
+# @param string $1 File (skipped if missing)
+read_env_file () {
+  local key value
+  [ -f "$1" ] || return 0
+  while IFS='=' read -r key value || [ -n "$key" ]; do
+    key="${key%$'\r'}"; value="${value%$'\r'}"
+    [[ $key =~ ^[A-Za-z_][A-Za-z0-9_]*$ ]] || continue
+    value="${value#\"}"; value="${value%\"}"
+    [ -n "${!key:-}" ] || export "$key=$value"
+  done < "$1"
+}
+
+# Resolves the settings: command-line parameters, then .env.local, then .env.
+# APP_ENV defaults to local.
 #
 # @param string $1 Command name, for error messages
 load_env () {
-  local key value
-  if [ -f "$ENV_FILE" ]; then
-    while IFS='=' read -r key value || [ -n "$key" ]; do
-      key="${key%$'\r'}"; value="${value%$'\r'}"
-      [[ $key =~ ^[A-Za-z_][A-Za-z0-9_]*$ ]] || continue
-      value="${value#\"}"; value="${value%\"}"
-      [ -n "${!key:-}" ] || export "$key=$value"
-    done < "$ENV_FILE"
-  fi
+  read_env_file "$LOCAL_ENV_FILE"
+  read_env_file "$ENV_FILE"
 
   export APP_ENV="${APP_ENV:-local}"
 
   case "$APP_ENV" in
-    local|prod) ;;
-    *) die "$1 : APP_ENV doit valoir local ou prod (actuellement « ${APP_ENV:-} »)" ;;
+    local|demo|prod) ;;
+    *) die "$1 : APP_ENV doit valoir local, demo ou prod (actuellement « $APP_ENV »)" ;;
   esac
 }
 
 # Exits unless APP_ENV matches.
 #
 # @param string $1 Command name, for error messages
-# @param string $2 Required environment (local|prod)
+# @param string $2 Required environment (local|demo|prod)
 require_app_env () {
   [ "$APP_ENV" = "$2" ] \
     || die "$1 : commande réservée à l'environnement $2 (APP_ENV=$APP_ENV)"
 }
 
-# Runs docker compose with the base file and the APP_ENV overlay.
+# Sets KEY=value in an env file, replacing the existing line.
+#
+# @param string $1 File
+# @param string $2 Key
+# @param string $3 Value
+set_env_value () {
+  awk -v k="$2" -v v="$3" 'index($0, k "=") == 1 { $0 = k "=" v } { print }' \
+    "$1" > "$1.tmp"
+  mv "$1.tmp" "$1"
+}
+
+# Runs docker compose with both env files, the base file and the APP_ENV overlay if any.
 #
 # @param string $@ docker compose arguments
 compose () {
-  run docker compose -f compose.yaml -f "compose.$APP_ENV.yaml" "$@"
+  local args=(--env-file "$ENV_FILE")
+  if [ -f "$LOCAL_ENV_FILE" ]; then args+=(--env-file "$LOCAL_ENV_FILE"); fi
+  args+=(-f compose.yaml)
+  if [ -f "compose.$APP_ENV.yaml" ]; then args+=(-f "compose.$APP_ENV.yaml"); fi
+  run docker compose "${args[@]}" "$@"
 }
 
-# Creates the shared network if missing.
-#
-# @return 0 if created, 1 if it already existed
-ensure_network () {
-  if docker network inspect "$NETWORK" >/dev/null 2>&1; then
-    return 1
-  fi
-  run docker network create "$NETWORK"
-}
+# @return 0 if the reverse proxy's shared network exists
+network_exists () { docker network inspect "$NETWORK" >/dev/null 2>&1; }
 
-# @return 0 if the Traefik container is running
-proxy_running () {
-  [ -n "$(docker compose -f compose.yaml -f "compose.$APP_ENV.yaml" \
-          ps -q traefik 2>/dev/null)" ]
-}
+# Generates a random secret: hexadecimal only, safe inside URLs.
+secret () { openssl rand -hex 24; }
 
 # Path of a tool: the project's pinned copy in .tools/bin/, else the system one.
 #
