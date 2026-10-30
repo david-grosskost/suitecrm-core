@@ -31,3 +31,6 @@ sed -i '/^?>[[:space:]]*$/d' "$override"
 echo >> "$override"
 tail -n +2 /usr/local/share/suitecrm/config_override.php >> "$override"
 echo "  Configuration de base appliquée (français par défaut)."
+
+# The admin was created before the base configuration: align its preferences.
+php /usr/local/share/suitecrm/post-install.php

@@ -43,8 +43,9 @@ RUN mkdir -p /usr/src/suitecrm /tmp/fr_FR \
  && echo "$SUITECRM_VERSION+$hash" > .image-version \
  && chown -R www-data:www-data /usr/src/suitecrm
 
-# Shared base configuration (French defaults), applied once at install
+# Shared base configuration (French defaults) and admin alignment, applied once at install
 COPY config/config_override.php /usr/local/share/suitecrm/config_override.php
+COPY scripts/post-install.php /usr/local/share/suitecrm/post-install.php
 
 COPY .docker/apache/suitecrm.conf /etc/apache2/sites-available/000-default.conf
 COPY .docker/php/suitecrm.ini /usr/local/etc/php/conf.d/suitecrm.ini
