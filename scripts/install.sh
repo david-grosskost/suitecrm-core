@@ -23,3 +23,11 @@ done
 
 # The silent-install config holds the passwords in clear.
 rm -f public/legacy/config_si.php
+
+# Shared base configuration (French defaults), everything but its "<?php" line.
+# A closing "?>" would turn the appended lines into plain text: remove it first.
+override=public/legacy/config_override.php
+sed -i '/^?>[[:space:]]*$/d' "$override"
+echo >> "$override"
+tail -n +2 /usr/local/share/suitecrm/config_override.php >> "$override"
+echo "  Configuration de base appliquée (français par défaut)."
