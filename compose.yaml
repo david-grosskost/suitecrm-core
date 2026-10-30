@@ -1,0 +1,48 @@
+# SuiteCRM: app served through the reverse proxy, private MariaDB.
+# @usage docker compose --env-file .env --env-file .env.local up -d
+name: ${APP_SLUG}
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+      target: base
+    image: suitecrm-core:dev
+    container_name: ${APP_SLUG}-app
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - proxy
+      - default
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.${APP_SLUG}.rule=Host(`${APP_HOST}`)
+      - traefik.http.routers.${APP_SLUG}.entrypoints=websecure
+
+  db:
+    image: mariadb:11.8
+    container_name: ${APP_SLUG}-db
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${DB_NAME}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  db:
+
+networks:
+  proxy:
+    name: proxy
+    external: true
