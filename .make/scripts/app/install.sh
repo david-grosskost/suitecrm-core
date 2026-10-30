@@ -24,13 +24,14 @@ if [ ! -f "$LOCAL_ENV_FILE" ]; then
   done < .env.local.example
 
   # Passwords not given as parameters are generated.
-  for key in DB_PASSWORD DB_ROOT_PASSWORD; do
+  for key in DB_PASSWORD DB_ROOT_PASSWORD ADMIN_PASSWORD; do
     if grep -q "^$key=change-me" "$LOCAL_ENV_FILE"; then
       set_env_value "$LOCAL_ENV_FILE" "$key" "$(secret)"
     fi
   done
 
   info "$LOCAL_ENV_FILE créé avec APP_ENV=$APP_ENV : les prochaines commandes l'utiliseront."
+  read_env_file "$LOCAL_ENV_FILE"
 fi
 
 if [ "$APP_ENV" = local ]; then
@@ -41,3 +42,11 @@ else
 fi
 
 "$SCRIPTS/app/start.sh"
+
+# SuiteCRM itself, installed once in the app volume. Values are passed by name
+# (-e KEY): docker reads them from this script's environment, nothing is printed.
+run docker exec -u www-data \
+  -e DB_NAME -e DB_USER -e DB_PASSWORD -e APP_HOST -e ADMIN_USER -e ADMIN_PASSWORD \
+  "$APP_SLUG-app" suitecrm-install
+
+info "Administrateur : $ADMIN_USER (mot de passe dans $LOCAL_ENV_FILE)"
