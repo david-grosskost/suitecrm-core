@@ -1,21 +1,25 @@
-# SuiteCRM: app served through the reverse proxy, private MariaDB.
+# SuiteCRM: app served through the reverse proxy, schedulers, private MariaDB.
 # @usage make app@start
 name: ${APP_SLUG}
 
+# Shared by app and cron: same image, same application volume.
+x-suitecrm: &suitecrm
+  build:
+    context: .
+    dockerfile: .docker/Dockerfile
+    target: base
+  image: suitecrm-core:dev
+  restart: unless-stopped
+  volumes:
+    - app:/var/www/html
+
 services:
   app:
-    build:
-      context: .
-      dockerfile: .docker/Dockerfile
-      target: base
-    image: suitecrm-core:dev
+    <<: *suitecrm
     container_name: ${APP_SLUG}-app
-    restart: unless-stopped
     depends_on:
       db:
         condition: service_healthy
-    volumes:
-      - app:/var/www/html
     healthcheck:
       # Healthy once the entrypoint has synced the code into the volume.
       test: ["CMD", "test", "-f", "/var/www/html/.image-version"]
@@ -29,6 +33,19 @@ services:
       - traefik.enable=true
       - traefik.http.routers.${APP_SLUG}.rule=Host(`${APP_HOST}`)
       - traefik.http.routers.${APP_SLUG}.entrypoints=websecure
+
+  cron:
+    <<: *suitecrm
+    container_name: ${APP_SLUG}-cron
+    # Not the app entrypoint: the code sync is the app's job, not the cron's.
+    entrypoint: ["suitecrm-cron"]
+    command: []
+    user: www-data
+    depends_on:
+      app:
+        condition: service_healthy
+    networks:
+      - default
 
   db:
     image: mariadb:11.8

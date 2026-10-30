@@ -51,6 +51,7 @@ COPY .docker/apache/suitecrm.conf /etc/apache2/sites-available/000-default.conf
 COPY .docker/php/suitecrm.ini /usr/local/etc/php/conf.d/suitecrm.ini
 COPY --chmod=755 .docker/entrypoint.sh /usr/local/bin/suitecrm-entrypoint
 COPY --chmod=755 scripts/install.sh /usr/local/bin/suitecrm-install
+COPY --chmod=755 .docker/cron.sh /usr/local/bin/suitecrm-cron
 
 WORKDIR /var/www/html
 
