@@ -1,5 +1,5 @@
 # SuiteCRM: app served through the reverse proxy, private MariaDB.
-# @usage docker compose --env-file .env --env-file .env.local up -d
+# @usage make app@start
 name: ${APP_SLUG}
 
 services:
@@ -14,6 +14,14 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    volumes:
+      - app:/var/www/html
+    healthcheck:
+      # Healthy once the entrypoint has synced the code into the volume.
+      test: ["CMD", "test", "-f", "/var/www/html/.image-version"]
+      interval: 5s
+      timeout: 3s
+      retries: 60
     networks:
       - proxy
       - default
@@ -40,6 +48,7 @@ services:
       retries: 5
 
 volumes:
+  app:
   db:
 
 networks:
