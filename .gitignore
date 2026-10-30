@@ -1,0 +1,12 @@
+# Local environment (secrets, per machine)
+.env.local
+
+# Composer dependencies
+/vendor/
+
+# Project tools (make git@hooks)
+/.tools/
+
+# IDE
+.idea/
+.vscode/
