@@ -1,0 +1,11 @@
+# CI: the checks shared by every SuiteCRM project, from the devkit.
+# Keep the version in step with suitecrm-devkit in composer.json.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    uses: david-grosskost/suitecrm-devkit/.github/workflows/checks.yml@v0.4.0
