@@ -1,0 +1,16 @@
+# Release: release pull request (release-please), then the image on GHCR.
+# Keep the version in step with suitecrm-devkit in composer.json.
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    permissions:
+      contents: write
+      pull-requests: write
+      packages: write
+    uses: david-grosskost/suitecrm-devkit/.github/workflows/release.yml@v0.5.0
+    secrets: inherit
