@@ -12,5 +12,5 @@ jobs:
       contents: write
       pull-requests: write
       packages: write
-    uses: david-grosskost/suitecrm-devkit/.github/workflows/release.yml@v0.5.0
+    uses: david-grosskost/suitecrm-devkit/.github/workflows/release.yml@v0.5.1
     secrets: inherit
