@@ -6,7 +6,9 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/david-grosskost/suitecrm-devkit"
+            "url": "https://github.com/david-grosskost/suitecrm-devkit",
+			"no-api": true
+
         }
     ],
     "require": {},
