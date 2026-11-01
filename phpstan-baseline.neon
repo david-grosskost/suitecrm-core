@@ -1,0 +1,13 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Call to static method getBean\(\) on an unknown class BeanFactory\.$#'
+			identifier: class.notFound
+			count: 1
+			path: scripts/post-install.php
+
+		-
+			message: '#^Path in require_once\(\) "include/entryPoint\.php" is not a file or it does not exist\.$#'
+			identifier: requireOnce.fileNotFound
+			count: 1
+			path: scripts/post-install.php

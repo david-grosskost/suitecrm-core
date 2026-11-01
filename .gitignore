@@ -4,8 +4,9 @@
 # Composer dependencies
 /vendor/
 
-# Project tools (make git@hooks)
+# Project tools (make git@hooks) and quality caches
 /.tools/
+/.php-cs-fixer.cache
 
 # IDE
 .idea/

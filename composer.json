@@ -11,9 +11,12 @@
     ],
     "require": {},
     "require-dev": {
-        "david-grosskost/suitecrm-devkit": "^0.1"
+        "david-grosskost/suitecrm-devkit": "^0.2"
     },
     "config": {
+        "platform": {
+            "php": "8.4"
+        },
         "preferred-install": {
             "david-grosskost/*": "source"
         },

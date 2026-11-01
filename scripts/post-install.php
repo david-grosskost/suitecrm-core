@@ -1,4 +1,5 @@
 <?php
+
 // Aligns the administrator created by the installer with the base configuration.
 // The installer saves the admin's preferences before config_override.php is
 // extended, so they still hold the US formats (12/23/2010, "." decimals, "," CSV).

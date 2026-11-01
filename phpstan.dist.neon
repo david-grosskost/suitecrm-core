@@ -1,0 +1,12 @@
+# Static analysis of this project (make quality@stan).
+# Shared settings come from suitecrm-devkit; errors already known are listed
+# in phpstan-baseline.neon (make quality@baseline).
+includes:
+    - vendor/david-grosskost/suitecrm-devkit/config/phpstan.neon
+    - phpstan-baseline.neon
+
+parameters:
+    paths:
+        - config
+        - scripts
+    tmpDir: .tools/phpstan

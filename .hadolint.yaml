@@ -1,0 +1,8 @@
+# hadolint (make quality@lint): rules set aside on purpose, with the reason.
+ignored:
+  # Pin versions in apt-get install: Debian removes old package versions, so a
+  # pinned build breaks within weeks. The base image tag pins the distribution.
+  - DL3008
+  # Consecutive RUN instructions: kept apart on purpose, so that the slow PHP
+  # extensions layer stays cached when the lines after it change.
+  - DL3059
