@@ -1,0 +1,22 @@
+{
+    "name": "david-grosskost/suitecrm-core",
+    "description": "Base of the SuiteCRM projects: SuiteCRM 8 image with the French base configuration.",
+    "type": "project",
+    "license": "proprietary",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/david-grosskost/suitecrm-devkit"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "david-grosskost/suitecrm-devkit": "^0.1"
+    },
+    "config": {
+        "preferred-install": {
+            "david-grosskost/*": "source"
+        },
+        "sort-packages": true
+    }
+}

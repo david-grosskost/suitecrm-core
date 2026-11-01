@@ -1,0 +1,7 @@
+# Not needed to build the image, and kept out of it.
+.git/
+.tools/
+vendor/
+
+# Secrets of this machine: must never end up in an image.
+.env.local

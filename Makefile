@@ -1,20 +1,34 @@
-# Convention: make <domain>@<action> runs .make/scripts/<domain>/<action>.sh
-# Each .make/<domain>.mk only declares targets; the logic lives in the scripts.
+# Commands come from suitecrm-devkit, installed by Composer in vendor/:
+# make <domain>@<action> runs vendor/david-grosskost/suitecrm-devkit/.make/scripts/<domain>/<action>.sh
+# Commands specific to this project go in .make/<domain>.mk (listed with the others).
+#
+# Bootstrap: on a fresh clone vendor/ is missing, so any make command first runs
+# composer install in a container (no PHP needed on the machine), then itself again.
 
-# Must be set before any include, otherwise make defaults to the first target.
-.DEFAULT_GOAL := .list
+DEVKIT := vendor/david-grosskost/suitecrm-devkit
 
-include $(wildcard .make/*.mk)
+ifneq ($(wildcard $(DEVKIT)/Makefile),)
 
-# Lists every <domain>@<action> target declared in a .PHONY line.
-.PHONY: .list
+include $(DEVKIT)/Makefile
 
-.list:
-	@printf '\n  \033[1;35m%s\033[0m - commandes disponibles\n' "$(notdir $(CURDIR))"
-	@grep -h '^\.PHONY:' $(MAKEFILE_LIST) \
-		| sed 's/^\.PHONY: *//' | tr ' ' '\n' | grep '@' | sort -u \
-		| awk -F'@' '{ \
-			if ($$1 != last) { printf "\n  \033[1;33m%s\033[0m\n", $$1; last = $$1 } \
-			printf "    \033[36m%s\033[0m\n", $$0 \
-		}'
-	@printf '\n'
+else
+
+.DEFAULT_GOAL := .devkit
+
+# Git Bash: pwd -W gives F:/projects/... (understood by Docker Desktop), and
+# MSYS_NO_PATHCONV keeps /app from being turned into a Windows path.
+# COMPOSER_ROOT_VERSION: Composer does not need to ask Git for this project's version.
+.PHONY: .devkit
+.devkit:
+	@printf '\n  Devkit absent : composer install (dans Docker)...\n\n'
+	@MSYS_NO_PATHCONV=1 docker run --rm --user "$$(id -u):$$(id -g)" \
+		-e COMPOSER_ROOT_VERSION=dev-main \
+		-v "$$(pwd -W 2>/dev/null || pwd):/app" -w /app \
+		composer:2 install --no-interaction --no-progress
+	@$(MAKE) --no-print-directory $(MAKECMDGOALS)
+
+# Any other command: install the devkit first, then run it (above).
+Makefile: ;
+%: .devkit ;
+
+endif
