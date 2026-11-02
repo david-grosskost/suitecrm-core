@@ -1,0 +1,14 @@
+# Server overlay, prod environment: runs the image published on GHCR, never
+# builds it. APP_VERSION is written to .env.local by each deployment.
+
+x-server-image: &server-image
+  # No build on a server: only the image of the released version.
+  build: !reset null
+  image: ${APP_IMAGE:?APP_IMAGE manquant dans .env}:${APP_VERSION:?APP_VERSION manquant dans .env.local}
+
+services:
+  app:
+    <<: *server-image
+
+  cron:
+    <<: *server-image
