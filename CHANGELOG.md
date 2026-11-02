@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/david-grosskost/suitecrm-core/compare/v0.3.0...v0.3.1) (2026-11-02)
+
+
+### Bug Fixes
+
+* run the deployment smoke test with devkit v0.7.1 ([#8](https://github.com/david-grosskost/suitecrm-core/issues/8)) ([07d52d3](https://github.com/david-grosskost/suitecrm-core/commit/07d52d32f7fefeb1937e6109bf99fed027a6ad9b))
+
 ## [0.3.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.2.0...v0.3.0) (2026-11-02)
 
 
