@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.2.0...v0.3.0) (2026-11-02)
+
+
+### Features
+
+* smoke test the demo after each deployment ([#6](https://github.com/david-grosskost/suitecrm-core/issues/6)) ([27c5f5a](https://github.com/david-grosskost/suitecrm-core/commit/27c5f5a7611c68af3f54deecc7e415461da01525))
+
 ## [0.2.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.1.0...v0.2.0) (2026-11-02)
 
 
