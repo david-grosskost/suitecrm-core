@@ -1,4 +1,5 @@
-# Release: release pull request (release-please), then the image on GHCR.
+# Release: release pull request (release-please), then the image on GHCR,
+# then the deployment of the new version to the demo.
 # Keep the version in step with suitecrm-devkit in composer.json.
 name: Release
 
@@ -12,5 +13,17 @@ jobs:
       contents: write
       pull-requests: write
       packages: write
-    uses: david-grosskost/suitecrm-devkit/.github/workflows/release.yml@v0.5.1
+    uses: david-grosskost/suitecrm-devkit/.github/workflows/release.yml@v0.6.0
+    secrets: inherit
+
+  # Every new release goes to the demo, once its image is pushed.
+  deploy-demo:
+    needs: release
+    if: needs.release.outputs.release_created == 'true'
+    permissions:
+      contents: read
+    uses: david-grosskost/suitecrm-devkit/.github/workflows/deploy.yml@v0.6.0
+    with:
+      environment: demo
+      version: ${{ needs.release.outputs.version }}
     secrets: inherit

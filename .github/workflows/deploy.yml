@@ -1,0 +1,25 @@
+# Manual deployment of a release: Actions → Deploy → Run workflow, choose the
+# tag of the release (e.g. v0.2.0) in "Use workflow from" and the environment.
+# production waits for the approval of its reviewer, and accepts only v* tags.
+# Keep the version in step with suitecrm-devkit in composer.json.
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Environment
+        type: environment
+        required: true
+
+jobs:
+  deploy:
+    # A release only: its image exists, its files are those of the tag.
+    if: github.ref_type == 'tag'
+    permissions:
+      contents: read
+    uses: david-grosskost/suitecrm-devkit/.github/workflows/deploy.yml@v0.6.0
+    with:
+      environment: ${{ inputs.environment }}
+      version: ${{ github.ref_name }}
+    secrets: inherit
