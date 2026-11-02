@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.1.0...v0.2.0) (2026-11-02)
+
+
+### Features
+
+* add demo and prod compose overlays for servers ([#3](https://github.com/david-grosskost/suitecrm-core/issues/3)) ([203a527](https://github.com/david-grosskost/suitecrm-core/commit/203a52724e7d85dd5f0ac05f0f1ebbea0e46ab37))
+* deploy every release to the demo ([#5](https://github.com/david-grosskost/suitecrm-core/issues/5)) ([d8a51fe](https://github.com/david-grosskost/suitecrm-core/commit/d8a51fe651cb4641ba13fb38c7081a60724acef6))
+
 ## 0.1.0 (2026-11-01)
 
 
