@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.2](https://github.com/david-grosskost/suitecrm-core/compare/v0.6.1...v0.6.2) (2026-11-04)
+
+
+### Bug Fixes
+
+* clear the SuiteCRM 8 cache when the code changes ([#19](https://github.com/david-grosskost/suitecrm-core/issues/19)) ([f51810e](https://github.com/david-grosskost/suitecrm-core/commit/f51810ea219c3d248754c23bc3e3ec5840cd4cb7))
+
 ## [0.6.1](https://github.com/david-grosskost/suitecrm-core/compare/v0.6.0...v0.6.1) (2026-11-04)
 
 
