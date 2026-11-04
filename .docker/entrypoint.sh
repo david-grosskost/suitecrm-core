@@ -35,8 +35,12 @@ if [ "$image_version" != "$app_version" ]; then
   # writes at the root of the application (.env.local at install).
   chown www-data:www-data "$APP"
 
-  # Language caches built from the previous version's labels (translations
-  # changed with the code): SuiteCRM rebuilds them on the next request.
+  # Caches built from the previous version's code and labels: SuiteCRM
+  # rebuilds them on the next request.
+  # - cache/prod: SuiteCRM 8 (Symfony container, labels and metadata served to
+  #   the interface). The image ships it empty, so it only holds runtime data.
+  # - public/legacy/cache: language files of the legacy part.
+  rm -rf "$APP/cache/prod"
   rm -rf "$APP/public/legacy/cache/jsLanguage"
   if [ -d "$APP/public/legacy/cache/modules" ]; then
     find "$APP/public/legacy/cache/modules" -path '*/language/*.lang.php' -delete
