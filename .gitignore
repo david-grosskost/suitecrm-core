@@ -1,6 +1,9 @@
 # Local environment (secrets, per machine)
 .env.local
 
+# Instance data, on a server (compose.demo.yaml, compose.prod.yaml)
+/data/
+
 # Composer dependencies
 /vendor/
 

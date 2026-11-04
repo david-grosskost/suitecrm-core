@@ -1,10 +1,15 @@
 # Server overlay, prod environment: runs the image published on GHCR, never
 # builds it. APP_VERSION is written to .env.local by each deployment.
+# Data lives in the instance directory (/srv/suitecrm/<slug>/data), not in
+# Docker volumes: one instance = one directory, backed up with it.
 
 x-server-image: &server-image
   # No build on a server: only the image of the released version.
   build: !reset null
   image: ${APP_IMAGE:?APP_IMAGE manquant dans .env}:${APP_VERSION:?APP_VERSION manquant dans .env.local}
+  # Same target as the app volume of compose.yaml, which it replaces.
+  volumes:
+    - ./data/app:/var/www/html
 
 services:
   app:
@@ -12,3 +17,7 @@ services:
 
   cron:
     <<: *server-image
+
+  db:
+    volumes:
+      - ./data/db:/var/lib/mysql
