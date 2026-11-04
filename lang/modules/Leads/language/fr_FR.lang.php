@@ -1,0 +1,47 @@
+<?php
+
+// Compléments du pack de langue français : libellés laissés en anglais.
+$mod_strings['LBL_ACCOUNT_NAME'] = 'Nom du compte :';
+$mod_strings['LBL_ANY_ADDRESS'] = 'Toutes les adresses :';
+$mod_strings['LBL_ANY_PHONE'] = 'Tous les téléphones :';
+$mod_strings['LBL_ASSIGNED_TO_NAME'] = 'Assigné à';
+$mod_strings['LBL_CONVERTED'] = 'Converti';
+$mod_strings['LBL_CONVERTLEAD'] = 'Convertir le prospect';
+$mod_strings['LBL_COUNTRY'] = 'Pays :';
+$mod_strings['LBL_CREATED_ACCOUNT'] = 'Nouveau compte créé';
+$mod_strings['LBL_CREATED_CALL'] = 'Nouvel appel créé';
+$mod_strings['LBL_CREATED_CONTACT'] = 'Nouveau contact créé';
+$mod_strings['LBL_CREATED_MEETING'] = 'Nouvelle réunion créée';
+$mod_strings['LBL_CREATED_OPPORTUNITY'] = 'Nouvelle affaire créée';
+$mod_strings['LBL_EXISTING_ACCOUNT'] = 'Compte existant utilisé';
+$mod_strings['LBL_EXISTING_CONTACT'] = 'Contact existant utilisé';
+$mod_strings['LBL_EXISTING_OPPORTUNITY'] = 'Affaire existante utilisée';
+$mod_strings['LBL_FAX_PHONE'] = 'Fax :';
+$mod_strings['LBL_IMPORT_VCARD'] = 'Importer une vCard';
+$mod_strings['LBL_INVITEE'] = 'Subordonnés directs';
+$mod_strings['LBL_LIST_ACCEPT_STATUS'] = 'Statut d\'acceptation';
+$mod_strings['LBL_LIST_ACCOUNT_NAME'] = 'Nom du compte';
+$mod_strings['LBL_LIST_CONTACT_ROLE'] = 'Rôle';
+$mod_strings['LBL_LIST_FIRST_NAME'] = 'Prénom';
+$mod_strings['LBL_LIST_LAST_NAME'] = 'Nom';
+$mod_strings['LBL_LIST_STATUS'] = 'Statut';
+$mod_strings['LBL_OTHER_PHONE'] = 'Autre téléphone :';
+$mod_strings['LBL_PHONE'] = 'Téléphone :';
+$mod_strings['LBL_PORTAL_INFORMATION'] = 'Informations du portail';
+$mod_strings['LBL_STREET'] = 'Rue';
+$mod_strings['LBL_PRIMARY_ADDRESS'] = 'Adresse principale :';
+$mod_strings['LBL_SALUTATION'] = 'Civilité';
+$mod_strings['LBL_SELECT_CHECKED_BUTTON_TITLE'] = 'Sélectionner les prospects cochés';
+$mod_strings['LBL_STATE'] = 'Région :';
+$mod_strings['LBL_STATUS'] = 'Statut :';
+$mod_strings['LNK_NEW_APPOINTMENT'] = 'Créer un rendez-vous';
+$mod_strings['LNK_NEW_NOTE'] = 'Créer une note';
+$mod_strings['NTC_DELETE_CONFIRMATION'] = 'Voulez-vous vraiment supprimer cet enregistrement ?';
+$mod_strings['LBL_CAMPAIGN'] = 'Campagne :';
+$mod_strings['LBL_ASSISTANT_PHONE'] = 'Téléphone de l\'assistant';
+$mod_strings['LBL_CREATED_USER'] = 'Utilisateur créateur';
+$mod_strings['LBL_MODIFIED_USER'] = 'Utilisateur modificateur';
+$mod_strings['LBL_WEBSITE'] = 'Site web';
+$mod_strings['LBL_ENTERDATE'] = 'Date de saisie';
+$mod_strings['LBL_LOADING'] = 'Chargement';
+$mod_strings['LBL_FP_EVENTS_LEADS_1_FROM_FP_EVENTS_TITLE'] = 'Évènements';

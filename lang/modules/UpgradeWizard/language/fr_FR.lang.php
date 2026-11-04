@@ -1,0 +1,46 @@
+<?php
+
+// Compléments du pack de langue français : libellés laissés en anglais.
+$mod_strings['ERR_UW_CONFIG_WRITE'] = 'Erreur lors de la mise à jour de config.php avec la nouvelle version.';
+$mod_strings['ERR_UW_NO_MANIFEST'] = 'Le fichier zip ne contient pas de manifest.php. Impossible de continuer.';
+$mod_strings['ERR_UW_NOT_VALID_UPLOAD'] = 'Fichier envoyé invalide.';
+$mod_strings['LBL_BUTTON_DELETE'] = 'Supprimer le paquet';
+$mod_strings['LBL_BUTTON_DONE'] = 'Terminé';
+$mod_strings['LBL_BUTTON_EXIT'] = 'Quitter';
+$mod_strings['LBL_UW_CHECK_ALL'] = 'Tout cocher';
+$mod_strings['LBL_UW_COMPLIANCE_CURL'] = 'Module cURL';
+$mod_strings['LBL_UW_COMPLIANCE_IMAP'] = 'Module IMAP';
+$mod_strings['LBL_UW_COMPLIANCE_XML'] = 'Analyse XML';
+$mod_strings['LBL_UW_FILE_GROUP'] = 'Groupe';
+$mod_strings['LBL_UW_FILE_OWNER'] = 'Propriétaire';
+$mod_strings['LBL_UW_HIDE_DETAILS'] = 'Masquer les détails';
+$mod_strings['LBL_UW_INCLUDING'] = 'Y compris';
+$mod_strings['LBL_UW_SHOW_DETAILS'] = 'Afficher les détails';
+$mod_strings['LBL_UW_SHOW'] = 'Afficher';
+$mod_strings['LBL_UW_TITLE'] = 'Assistant de mise à jour';
+$mod_strings['LBL_UW_UNINSTALL'] = 'Désinstaller';
+$mod_strings['LBL_INCOMPATIBLE_PHP_VERSION'] = 'PHP 5 ou supérieur est requis.';
+$mod_strings['ERR_CHECKSYS_PHP_INVALID_VER'] = 'Votre version de PHP n\'est pas prise en charge par SuiteCRM. Installez une version compatible : consultez la matrice de compatibilité dans les notes de version. Votre version est ';
+$mod_strings['LBL_BACKWARD_COMPATIBILITY_ON'] = 'Le mode de compatibilité PHP est activé. Passez zend.ze1_compatibility_mode à Off pour continuer';
+$mod_strings['LBL_ML_COMMIT'] = 'Valider';
+$mod_strings['LBL_ML_INSTALLED'] = 'Date d\'installation';
+$mod_strings['LBL_ML_PUBLISHED'] = 'Date de publication';
+$mod_strings['LBL_ML_UNINSTALLABLE'] = 'Désinstallable';
+$mod_strings['LBL_ML_INSTALL'] = 'Installer';
+$mod_strings['LBL_LAYOUT_MODULE_TITLE'] = 'Mises en page';
+$mod_strings['LBL_UW_CONFIRM_LAYOUTS'] = 'Confirmer les mises en page';
+$mod_strings['ERROR_VERSION_INCOMPATIBLE'] = 'Le fichier envoyé n\'est pas compatible avec cette version de SuiteCRM : ';
+$mod_strings['ERROR_SUITECRM_VERSION_INCOMPATIBLE'] = 'Le fichier envoyé n\'est pas compatible avec cette version de SuiteCRM : ';
+$mod_strings['LBL_LANGPACKS'] = 'Packs de langue';
+$mod_strings['LBL_MODULELOADER'] = 'Chargeur de modules';
+$mod_strings['LBL_PATCHUPGRADES'] = 'Correctifs';
+$mod_strings['LBL_THEMES'] = 'Thèmes';
+$mod_strings['LBL_WORKFLOW'] = 'Flux d\'activité';
+$mod_strings['LBL_UPGRADE'] = 'Mise à jour';
+$mod_strings['LBL_PROCESSING'] = 'Traitement';
+$mod_strings['ERR_UW_PHP_FILE_ERRORS'][1] = 'Le fichier envoyé dépasse la directive upload_max_filesize de php.ini.';
+$mod_strings['ERR_UW_PHP_FILE_ERRORS'][2] = 'Le fichier envoyé dépasse la directive MAX_FILE_SIZE du formulaire HTML.';
+$mod_strings['ERR_UW_PHP_FILE_ERRORS'][3] = 'Le fichier n\'a été envoyé que partiellement.';
+$mod_strings['ERR_UW_PHP_FILE_ERRORS'][4] = 'Aucun fichier n\'a été envoyé.';
+$mod_strings['ERR_UW_PHP_FILE_ERRORS'][6] = 'Dossier temporaire manquant.';
+$mod_strings['ERR_UW_PHP_FILE_ERRORS'][7] = 'Échec de l\'écriture du fichier sur le disque.';

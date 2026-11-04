@@ -35,16 +35,31 @@ ADD https://github.com/SuiteCRM/SuiteCRM-Core/releases/download/v${SUITECRM_VERS
 ADD https://sourceforge.net/projects/suitecrmtranslations/files/${LANG_PACK_VERSION}/fr_FR_SuiteCRM_lang_${LANG_PACK_VERSION}.zip/download \
     /tmp/fr_FR.zip
 
+# Our French complements (labels the pack leaves in English), see lang/README.md.
+COPY lang/ /tmp/lang/
+
 # The language pack is checked against its known SHA-256 first, then installed
 # the way its manifest.php does it: include/, modules/ and install/ copied into
-# public/legacy/. .image-version identifies this build (version + content hash),
-# so the entrypoint syncs the volume whenever the code changes.
+# public/legacy/. Each file of lang/ is then appended to the pack file at the
+# same path (without its "<?php" line, after removing a closing "?>"), or
+# copied if the pack has none. .image-version identifies this build (version +
+# content hash), so the entrypoint syncs the volume whenever the code changes.
 RUN echo "${LANG_PACK_SHA256}  /tmp/fr_FR.zip" | sha256sum -c --quiet - \
  && mkdir -p /usr/src/suitecrm /tmp/fr_FR \
  && unzip -q /tmp/suitecrm.zip -d /usr/src/suitecrm \
  && unzip -q /tmp/fr_FR.zip -d /tmp/fr_FR \
  && cp -r /tmp/fr_FR/include /tmp/fr_FR/modules /tmp/fr_FR/install /usr/src/suitecrm/public/legacy/ \
- && rm -rf /tmp/suitecrm.zip /tmp/fr_FR.zip /tmp/fr_FR \
+ && find /tmp/lang -name '*.php' -print0 | while IFS= read -r -d '' file; do \
+      target="/usr/src/suitecrm/public/legacy/${file#/tmp/lang/}"; \
+      if [ -f "$target" ]; then \
+        sed -i '/^?>[[:space:]]*$/d' "$target"; \
+        tail -n +2 "$file" >> "$target"; \
+      else \
+        mkdir -p "$(dirname "$target")"; \
+        cp "$file" "$target"; \
+      fi; \
+    done \
+ && rm -rf /tmp/suitecrm.zip /tmp/fr_FR.zip /tmp/fr_FR /tmp/lang \
  && hash="$(find /usr/src/suitecrm -type f -print0 | sort -z | xargs -0 sha256sum | sha256sum | cut -c1-12)" \
  && echo "$SUITECRM_VERSION+$hash" > /usr/src/suitecrm/.image-version \
  && chown -R www-data:www-data /usr/src/suitecrm

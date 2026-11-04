@@ -1,0 +1,46 @@
+<?php
+
+// Compléments du pack de langue français : libellés laissés en anglais.
+$mod_strings['LBL_OOTB_CAL_ACC_SYNC'] = 'Synchronisation des comptes d\'agenda';
+$mod_strings['LBL_OOTB_SEND_EMAIL_TO_QUEUE'] = 'Mettre en file d\'attente les e-mails de campagne';
+$mod_strings['LBL_OOTB_SEND_EMAIL_FROM_QUEUE'] = 'Envoyer les e-mails de campagne';
+$mod_strings['LBL_OOTB_CLEAN_UP_TEMP_FILES'] = 'Nettoyer les fichiers temporaires';
+$mod_strings['LBL_LIST_STATUS'] = 'Statut :';
+$mod_strings['LBL_SUN'] = 'Dimanche';
+$mod_strings['LBL_MON'] = 'Lundi';
+$mod_strings['LBL_TUE'] = 'Mardi';
+$mod_strings['LBL_WED'] = 'Mercredi';
+$mod_strings['LBL_THU'] = 'Jeudi';
+$mod_strings['LBL_FRI'] = 'Vendredi';
+$mod_strings['LBL_SAT'] = 'Samedi';
+$mod_strings['LBL_EVERY'] = 'Tous les';
+$mod_strings['LBL_FROM'] = 'De';
+$mod_strings['LBL_RANGE'] = 'à';
+$mod_strings['LBL_HOUR_SING'] = 'heure';
+$mod_strings['LBL_HOURS'] = 'h';
+$mod_strings['LBL_DAY_OF_WEEK'] = 'jour';
+$mod_strings['LBL_ALWAYS'] = 'Toujours';
+$mod_strings['LBL_NAME'] = 'Nom du planificateur';
+$mod_strings['LBL_NEVER'] = 'Jamais';
+$mod_strings['LBL_STATUS'] = 'Statut';
+$mod_strings['LBL_TOGGLE_ADV'] = 'Afficher les options avancées';
+$mod_strings['LBL_CRON_SETUP'] = 'Configurer les planificateurs';
+$mod_strings['LBL_CRON_LINUX_DESC1'] = 'Pour exécuter les planificateurs de SuiteCRM';
+$mod_strings['LBL_CRON_LINUX_DESC2'] = '1. Modifiez la crontab de l\'utilisateur du serveur web avec cette commande';
+$mod_strings['LBL_CRON_LINUX_DESC3'] = '2. Puis ajoutez la ligne suivante dans la crontab :';
+$mod_strings['LBL_CRON_LINUX_DESC4'] = 'À faire uniquement une fois l\'installation terminée.';
+$mod_strings['LBL_CRON_LINUX_DESC5'] = '2(i). Pour définir les variables d\'environnement, ajoutez la ligne suivante :';
+$mod_strings['LBL_CRON_LINUX_DESC6'] = 'Adaptez [path/to/php] et [path/to/suite/instance] à votre environnement.';
+$mod_strings['LBL_CRON_WINDOWS_DESC'] = 'Pour exécuter les planificateurs de SuiteCRM';
+$mod_strings['LBL_CRON_WINDOWS_DESC2'] = '1. Créez un fichier batch lancé par le Planificateur de tâches Windows, contenant les commandes suivantes :';
+$mod_strings['LBL_CRON_WINDOWS_DESC3'] = 'Adaptez [path\\to\\php.exe] et [path\\to\\suite\\instance] à votre environnement.';
+$mod_strings['LBL_SCHEDULERS_INFO'] = 'Informations sur les planificateurs';
+$mod_strings['LBL_SCHEDULERS_NEVER_RUN'] = 'Les planificateurs n\'ont jamais été exécutés.';
+$mod_strings['LBL_PRUNEDATABASE'] = 'Purger la base le 1er du mois';
+$mod_strings['LBL_TRIMTRACKER'] = 'Purger les tables de suivi';
+$mod_strings['LBL_TRIMSUGARFEEDS'] = 'Purger les tables du fil d\'actualité SuiteCRM';
+$mod_strings['LBL_REMOVEDOCUMENTSFROMFS'] = 'Suppression des documents du système de fichiers';
+$mod_strings['LBL_CALENDARSYNCJOB'] = 'Synchroniser les comptes d\'agenda';
+$mod_strings['LBL_SENDFROMQUEUE'] = 'Envoyer les e-mails de la file d\'attente';
+$mod_strings['LBL_CLEANUPTEMPORARYFILES'] = 'Nettoyer les fichiers temporaires';
+$mod_strings['LBL_EMAILTOQUEUE'] = 'Mettre en file d\'attente les e-mails planifiés';

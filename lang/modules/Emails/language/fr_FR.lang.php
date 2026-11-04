@@ -1,0 +1,47 @@
+<?php
+
+// Compléments du pack de langue français : libellés laissés en anglais.
+$mod_strings['LBL_IMPORT'] = 'Importer';
+$mod_strings['LBL_CREATED_BY'] = 'Créé par';
+$mod_strings['LBL_EMAIL_ATTACHMENT'] = 'Pièce jointe de l\'e-mail';
+$mod_strings['LBL_EMAIL_SELECTOR_SELECT'] = 'Sélectionner';
+$mod_strings['LBL_EMAIL_SELECTOR_CLEAR'] = 'Effacer';
+$mod_strings['LBL_FROM_NAME'] = 'Nom de l\'expéditeur';
+$mod_strings['LBL_HTML_BODY'] = 'Corps HTML';
+$mod_strings['LBL_NOT_SENT'] = 'Erreur d\'envoi';
+$mod_strings['LBL_NOTES_SUBPANEL_TITLE'] = 'Pièces jointes';
+$mod_strings['LBL_SEND_BUTTON_LABEL'] = 'Envoyer';
+$mod_strings['LBL_SEND_BUTTON_TITLE'] = 'Envoyer';
+$mod_strings['LBL_SHOW_ALT_TEXT'] = 'Afficher le texte brut';
+$mod_strings['LBL_SUBJECT'] = 'Objet :';
+$mod_strings['LBL_TEXT_BODY'] = 'Corps du texte';
+$mod_strings['LBL_TO_ADDRS'] = 'À';
+$mod_strings['LBL_LIST_FROM_ADDR'] = 'De';
+$mod_strings['LBL_LIST_RELATED_TO'] = 'Lié à';
+$mod_strings['LBL_LIST_TO_ADDR'] = 'À';
+$mod_strings['LBL_BUTTON_FORWARD'] = 'Transférer';
+$mod_strings['LBL_BUTTON_REPLY_TITLE'] = 'Répondre';
+$mod_strings['LBL_BUTTON_REPLY_ALL'] = 'Répondre à tous';
+$mod_strings['LBL_REPLY_HEADER_1'] = 'Le';
+$mod_strings['LBL_BUTTON_GRAB'] = 'Prendre dans le groupe';
+$mod_strings['LBL_CREATE_BUG'] = 'Créer une anomalie';
+$mod_strings['LBL_DIST_TITLE'] = 'Attribution';
+$mod_strings['LBL_NEW'] = 'Nouveau';
+$mod_strings['LBL_REPLIED'] = 'Répondu';
+$mod_strings['LBL_UNKNOWN'] = 'Inconnu';
+$mod_strings['LBL_IMPORT_STATUS_TITLE'] = 'Statut';
+$mod_strings['LBL_LIST_STATUS'] = 'Statut';
+$mod_strings['LNK_QUICK_REPLY'] = 'Répondre';
+$mod_strings['LBL_QUICK_CREATE'] = 'Création rapide';
+$mod_strings['LBL_TYPE'] = 'Type :';
+$mod_strings['ERR_MISSING_REQUIRED_FIELDS'] = 'Champ obligatoire manquant';
+$mod_strings['LBL_EMAIL_SETTINGS_INBOUND_ACCOUNTS'] = 'Comptes de messagerie';
+$mod_strings['LBL_MORE_OPTIONS'] = 'Plus';
+$mod_strings['LBL_MAILBOX_TYPE_PERSONAL'] = 'Personnel';
+$mod_strings['LBL_MAILBOX_TYPE_GROUP'] = 'Groupe';
+$mod_strings['LBL_NO_SUBJECT'] = '(sans objet)';
+$mod_strings['LBL_OF'] = 'sur';
+$mod_strings['LBL_CATEGORY'] = 'Catégorie';
+$mod_strings['LBL_LIST_CATEGORY'] = 'Catégorie';
+$mod_strings['LBL_PARENT_ID'] = 'ID parent';
+$mod_strings['LBL_LIST_DATE_MODIFIED'] = 'Dernière modification';
