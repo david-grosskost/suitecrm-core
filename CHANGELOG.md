@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.3.1...v0.4.0) (2026-11-04)
+
+
+### Features
+
+* keep instance data in the instance directory on servers ([#11](https://github.com/david-grosskost/suitecrm-core/issues/11)) ([3c9a642](https://github.com/david-grosskost/suitecrm-core/commit/3c9a642becc465cf7b7cab3523f639388bd4bdbf))
+
 ## [0.3.1](https://github.com/david-grosskost/suitecrm-core/compare/v0.3.0...v0.3.1) (2026-11-02)
 
 
