@@ -13,7 +13,7 @@
     ],
     "require": {},
     "require-dev": {
-        "david-grosskost/suitecrm-devkit": "^0.7"
+        "david-grosskost/suitecrm-devkit": "^0.8"
     },
     "config": {
         "platform": {

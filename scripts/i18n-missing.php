@@ -98,7 +98,10 @@ function i18n_literal(int|string $value): string
 $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($legacy, FilesystemIterator::SKIP_DOTS));
 $report = [];
 foreach ($files as $file) {
-    $path = (string) $file;
+    if (!$file instanceof SplFileInfo) {
+        continue;
+    }
+    $path = $file->getPathname();
     if (!preg_match('#/language/en_us(\.[^/]*)?\.php$#', $path)) {
         continue;
     }

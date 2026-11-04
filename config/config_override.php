@@ -5,6 +5,8 @@
 // afterwards the administrator owns these settings. Keep the first line alone:
 // only the lines after it are appended.
 
+/** @var array<string, mixed> $sugar_config Set by SuiteCRM before this file runs */
+
 // Language
 $sugar_config['languages'] = [
     'en_us' => 'English (US)',
