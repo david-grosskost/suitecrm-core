@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a01b228731a4fc40db7a92c1e186bd53",
+    "content-hash": "f6fb80b5a62782b7615a39b4390db1e2",
     "packages": [],
     "packages-dev": [
         {
@@ -296,16 +296,16 @@
         },
         {
             "name": "david-grosskost/suitecrm-devkit",
-            "version": "v0.8.0",
+            "version": "v0.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/david-grosskost/suitecrm-devkit",
-                "reference": "7202911ce786c67e1bf8d13642feb97b848ea590"
+                "reference": "abbb2a941d619589cee60b2efc0efcafb838f707"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/7202911ce786c67e1bf8d13642feb97b848ea590",
-                "reference": "7202911ce786c67e1bf8d13642feb97b848ea590",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/abbb2a941d619589cee60b2efc0efcafb838f707",
+                "reference": "abbb2a941d619589cee60b2efc0efcafb838f707",
                 "shasum": ""
             },
             "require": {
@@ -317,7 +317,7 @@
                 "proprietary"
             ],
             "description": "Shared tooling of the SuiteCRM projects: make commands, Git hooks, quality configs, CI workflows.",
-            "time": "2026-11-04T20:02:18+00:00"
+            "time": "2026-11-04T21:52:15+00:00"
         },
         {
             "name": "ergebnis/agent-detector",
@@ -1771,25 +1771,25 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v8.0.15",
+            "version": "v7.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "3d190c51f717870eed9aa5e9c7cb927ffc911d05"
+                "reference": "53d609da66578dad5a39fe290e8f924ec8f05e93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/3d190c51f717870eed9aa5e9c7cb927ffc911d05",
-                "reference": "3d190c51f717870eed9aa5e9c7cb927ffc911d05",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/53d609da66578dad5a39fe290e8f924ec8f05e93",
+                "reference": "53d609da66578dad5a39fe290e8f924ec8f05e93",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.4",
+                "php": ">=8.2",
                 "symfony/polyfill-ctype": "~1.8",
                 "symfony/polyfill-mbstring": "~1.8"
             },
             "require-dev": {
-                "symfony/process": "^7.4|^8.0"
+                "symfony/process": "^6.4|^7.0|^8.0"
             },
             "type": "library",
             "autoload": {
@@ -1817,7 +1817,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v8.0.15"
+                "source": "https://github.com/symfony/filesystem/tree/v7.4.23"
             },
             "funding": [
                 {
@@ -1837,8 +1837,8 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-22T15:20:43+00:00",
-            "published-time": "2026-07-29T11:48:27+00:00"
+            "time": "2026-11-04T08:27:22+00:00",
+            "published-time": "2026-11-04T11:28:00+00:00"
         },
         {
             "name": "symfony/finder",

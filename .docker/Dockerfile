@@ -20,7 +20,14 @@ ARG LANG_PACK_SHA256=3930464a8510f46a8c12d5a319e90a5847ee754877e0b038ba1e03cf39f
 COPY --from=php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 RUN install-php-extensions intl gd mysqli pdo_mysql soap zip opcache ldap imap
 
-RUN apt-get update \
+# Debian security updates, including those not yet in the php base image
+# (fixed by Debian after its last rebuild). The release build sets
+# SECURITY_REFRESH to a new value each time (suitecrm-devkit release.yml):
+# this layer is then never reused from the cache, every release gets them.
+ARG SECURITY_REFRESH=
+RUN echo "Mises à jour de sécurité : ${SECURITY_REFRESH:-cache local}" \
+ && apt-get update \
+ && apt-get upgrade -y \
  && apt-get install -y --no-install-recommends unzip rsync \
  && rm -rf /var/lib/apt/lists/*
 
