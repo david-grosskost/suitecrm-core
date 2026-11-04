@@ -35,6 +35,13 @@ if [ "$image_version" != "$app_version" ]; then
   # writes at the root of the application (.env.local at install).
   chown www-data:www-data "$APP"
 
+  # Language caches built from the previous version's labels (translations
+  # changed with the code): SuiteCRM rebuilds them on the next request.
+  rm -rf "$APP/public/legacy/cache/jsLanguage"
+  if [ -d "$APP/public/legacy/cache/modules" ]; then
+    find "$APP/public/legacy/cache/modules" -path '*/language/*.lang.php' -delete
+  fi
+
   # Written last: marks the sync as complete (used by the healthcheck).
   cp -p "$SRC/.image-version" "$APP/.image-version"
 fi

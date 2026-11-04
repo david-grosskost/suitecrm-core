@@ -1,0 +1,46 @@
+<?php
+
+// Compléments du pack de langue français : libellés laissés en anglais.
+$mod_strings['LBL_INVITEE'] = 'Subordonnés directs';
+$mod_strings['LBL_LIST_LAST_NAME'] = 'Nom';
+$mod_strings['LBL_LIST_FIRST_NAME'] = 'Prénom';
+$mod_strings['LBL_ASSIGNED_TO_NAME'] = 'Assigné à';
+$mod_strings['LBL_EXISTING_ACCOUNT'] = 'Compte existant utilisé';
+$mod_strings['LBL_CREATED_ACCOUNT'] = 'Nouveau compte créé';
+$mod_strings['LBL_CREATED_CALL'] = 'Nouvel appel créé';
+$mod_strings['LBL_CREATED_MEETING'] = 'Nouvelle réunion créée';
+$mod_strings['LBL_ANY_PHONE'] = 'Tous les téléphones :';
+$mod_strings['LBL_PHONE'] = 'Téléphone :';
+$mod_strings['LBL_OTHER_PHONE'] = 'Autre téléphone :';
+$mod_strings['LBL_FAX_PHONE'] = 'Fax :';
+$mod_strings['LBL_PRIMARY_ADDRESS_STREET'] = 'Rue (adresse principale) :';
+$mod_strings['LBL_PRIMARY_ADDRESS_CITY'] = 'Ville (adresse principale) :';
+$mod_strings['LBL_PRIMARY_ADDRESS_POSTALCODE'] = 'Code postal (adresse principale) :';
+$mod_strings['LBL_ASSISTANT'] = 'Assistant :';
+$mod_strings['LBL_PRIMARY_ADDRESS'] = 'Adresse principale :';
+$mod_strings['LBL_ANY_ADDRESS'] = 'Toutes les adresses :';
+$mod_strings['LBL_STATE'] = 'Région :';
+$mod_strings['LBL_COUNTRY'] = 'Pays :';
+$mod_strings['LBL_IMPORT_VCARD'] = 'Importer une vCard';
+$mod_strings['LBL_IMPORT_VCARDTEXT'] = 'Créer automatiquement un contact en important une vCard depuis vos fichiers.';
+$mod_strings['LNK_IMPORT_VCARD'] = 'Créer depuis une vCard';
+$mod_strings['LNK_NEW_APPOINTMENT'] = 'Créer un rendez-vous';
+$mod_strings['NTC_DELETE_CONFIRMATION'] = 'Voulez-vous vraiment supprimer cet enregistrement ?';
+$mod_strings['ERR_DELETE_RECORD'] = 'Un numéro d\'enregistrement doit être indiqué pour supprimer le contact.';
+$mod_strings['LBL_SALUTATION'] = 'Civilité';
+$mod_strings['LBL_CREATED_OPPORTUNITY'] = 'Nouvelle affaire créée';
+$mod_strings['LNK_SELECT_ACCOUNT'] = 'Sélectionner un compte';
+$mod_strings['LNK_NEW_PROSPECT'] = 'Créer une cible';
+$mod_strings['LNK_PROSPECT_LIST'] = 'Voir les cibles';
+$mod_strings['LNK_NEW_CAMPAIGN'] = 'Créer une campagne';
+$mod_strings['LNK_NEW_PROSPECT_LIST'] = 'Créer une liste de cibles';
+$mod_strings['LNK_PROSPECT_LIST_LIST'] = 'Listes de cibles';
+$mod_strings['LBL_SELECT_CHECKED_BUTTON_TITLE'] = 'Sélectionner les cibles cochées';
+$mod_strings['LBL_CONVERT_BUTTON_LABEL'] = 'Convertir la cible';
+$mod_strings['LNK_NEW_CONTACT'] = 'Nouveau contact';
+$mod_strings['LBL_CREATED_CONTACT'] = 'Nouveau contact créé';
+$mod_strings['LBL_ACCOUNT_NAME'] = 'Nom du compte';
+$mod_strings['LBL_EDIT_ACCOUNT_NAME'] = 'Nom du compte :';
+$mod_strings['LBL_CREATED_USER'] = 'Utilisateur créateur';
+$mod_strings['LBL_MODIFIED_USER'] = 'Utilisateur modificateur';
+$mod_strings['LBL_FP_EVENTS_PROSPECTS_1_FROM_FP_EVENTS_TITLE'] = 'Évènements';

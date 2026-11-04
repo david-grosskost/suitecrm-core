@@ -1,0 +1,45 @@
+<?php
+
+// Compléments du pack de langue français : libellés laissés en anglais.
+$mod_strings['LBL_ACCEPT_THIS'] = 'Accepter ?';
+$mod_strings['LBL_ADD_INVITEE'] = 'Ajouter des invités';
+$mod_strings['LBL_CREATED_BY'] = 'Créé par';
+$mod_strings['LBL_DATE_END'] = 'Date de fin';
+$mod_strings['LBL_FIRST_NAME'] = 'Prénom';
+$mod_strings['LBL_HOURS_MINS'] = '(heures/minutes)';
+$mod_strings['LBL_INVITEE'] = 'Invités';
+$mod_strings['LBL_LAST_NAME'] = 'Nom';
+$mod_strings['LBL_LIST_STATUS'] = 'Statut';
+$mod_strings['LBL_MODIFIED_BY'] = 'Modifié par';
+$mod_strings['LBL_NEW_FORM_TITLE'] = 'Créer un rendez-vous';
+$mod_strings['LBL_REMINDER_TIME'] = 'Heure du rappel';
+$mod_strings['LBL_REMINDER_POPUP'] = 'Fenêtre contextuelle';
+$mod_strings['LBL_SCHEDULING_FORM_TITLE'] = 'Planification';
+$mod_strings['LBL_SEARCH_BUTTON'] = 'Rechercher';
+$mod_strings['LBL_STATUS'] = 'Statut :';
+$mod_strings['LBL_SUBJECT'] = 'Objet :';
+$mod_strings['LBL_CALENDAR_ACCOUNTS'] = 'Comptes d\'agenda';
+$mod_strings['LBL_PARENT_ID'] = 'ID parent';
+$mod_strings['LNK_MEETING_LIST'] = 'Voir les réunions';
+$mod_strings['LNK_NEW_APPOINTMENT'] = 'Créer un rendez-vous';
+$mod_strings['LNK_IMPORT_MEETINGS'] = 'Importer des réunions';
+$mod_strings['LBL_CREATED_USER'] = 'Utilisateur créateur';
+$mod_strings['LBL_MODIFIED_USER'] = 'Utilisateur modificateur';
+$mod_strings['NOTICE_DURATION_TIME'] = 'La durée doit être supérieure à 0';
+$mod_strings['LBL_ACCEPT_STATUS'] = 'Statut d\'acceptation';
+$mod_strings['LBL_ACCEPT_LINK'] = 'Lien d\'acceptation';
+$mod_strings['LBL_CREATE_INVITEE'] = 'Créer un invité';
+$mod_strings['LBL_CREATE_CONTACT'] = 'En tant que contact';
+$mod_strings['LBL_CREATE_LEAD'] = 'En tant que prospect';
+$mod_strings['LBL_CREATE_AND_ADD'] = 'Créer et ajouter';
+$mod_strings['LBL_EMPTY_SEARCH_RESULT'] = 'Aucun résultat. Créez un invité ci-dessous.';
+$mod_strings['LBL_NO_ACCESS'] = 'Vous n\'avez pas le droit de créer : $module';
+$mod_strings['LBL_REPEAT_TYPE'] = 'Type de répétition';
+$mod_strings['LBL_REPEAT_INTERVAL'] = 'Intervalle de répétition';
+$mod_strings['LBL_REPEAT_DOW'] = 'Jours de répétition';
+$mod_strings['LBL_RECURRING_SOURCE'] = 'Source de la récurrence';
+$mod_strings['LBL_REMINDERS'] = 'Rappels';
+$mod_strings['LBL_REMINDERS_POPUP'] = 'Fenêtre contextuelle';
+$mod_strings['LBL_REMINDERS_REMOVE_REMINDER'] = 'Supprimer le rappel';
+$mod_strings['LBL_REMINDERS_ADD_ALL_INVITEES'] = 'Ajouter tous les invités';
+$mod_strings['LBL_REMINDERS_ADD_REMINDER'] = 'Ajouter un rappel';
