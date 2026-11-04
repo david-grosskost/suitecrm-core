@@ -2,6 +2,7 @@
 .git/
 .tools/
 vendor/
+data/
 
 # Secrets of this machine: must never end up in an image.
 .env.local

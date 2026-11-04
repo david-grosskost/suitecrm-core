@@ -31,6 +31,10 @@ if [ "$image_version" != "$app_version" ]; then
 
   rsync -a "${excludes[@]}" "$SRC/" "$APP/"
 
+  # A data directory created by Docker on the server belongs to root: SuiteCRM
+  # writes at the root of the application (.env.local at install).
+  chown www-data:www-data "$APP"
+
   # Written last: marks the sync as complete (used by the healthcheck).
   cp -p "$SRC/.image-version" "$APP/.image-version"
 fi
