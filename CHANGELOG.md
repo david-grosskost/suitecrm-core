@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.4.0...v0.5.0) (2026-11-04)
+
+
+### Features
+
+* complete the French labels missing from the language pack ([#13](https://github.com/david-grosskost/suitecrm-core/issues/13)) ([92b6da9](https://github.com/david-grosskost/suitecrm-core/commit/92b6da9ef5610af318ed4355480d2fd9b9ebb068))
+
 ## [0.4.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.3.1...v0.4.0) (2026-11-04)
 
 
