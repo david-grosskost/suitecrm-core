@@ -1,0 +1,39 @@
+<?php
+
+// Signatures of the SuiteCRM classes used by scripts/, for PHPStan only.
+// SuiteCRM exists only inside the image, so the analysis cannot read it.
+// Declare here only what the scripts call, with the real signatures.
+
+class SugarBean
+{
+    /** @var string|null */
+    public $id;
+}
+
+class Person extends SugarBean
+{
+}
+
+class User extends Person
+{
+    /**
+     * @param mixed $value
+     */
+    public function setPreference(string $name, $value, int $nosession = 0, string $category = 'global'): void
+    {
+    }
+
+    public function savePreferencesToDB(): void
+    {
+    }
+}
+
+class BeanFactory
+{
+    /**
+     * @param array<string, mixed> $params
+     */
+    public static function getBean(string $module, ?string $id = null, array $params = [], bool $deleted = true): SugarBean|false
+    {
+    }
+}

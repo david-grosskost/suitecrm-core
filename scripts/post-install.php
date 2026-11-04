@@ -13,10 +13,11 @@ if (!defined('sugarEntry')) {
 chdir('/var/www/html/public/legacy');
 require_once 'include/entryPoint.php';
 
+/** @var array<string, mixed> $sugar_config Set by SuiteCRM's entryPoint.php */
 global $sugar_config;
 
 $admin = BeanFactory::getBean('Users', '1');
-if (empty($admin->id)) {
+if (!$admin instanceof User || empty($admin->id)) {
     fwrite(STDERR, "post-install : administrateur introuvable\n");
     exit(1);
 }
