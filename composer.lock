@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6fb80b5a62782b7615a39b4390db1e2",
+    "content-hash": "79951505c4684eb0f3a741b0b3ac4ed0",
     "packages": [],
     "packages-dev": [
         {
@@ -296,16 +296,16 @@
         },
         {
             "name": "david-grosskost/suitecrm-devkit",
-            "version": "v0.10.0",
+            "version": "v0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/david-grosskost/suitecrm-devkit",
-                "reference": "abbb2a941d619589cee60b2efc0efcafb838f707"
+                "reference": "919001d8ae11f4ae3fc272cf26846c5dd85e30d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/abbb2a941d619589cee60b2efc0efcafb838f707",
-                "reference": "abbb2a941d619589cee60b2efc0efcafb838f707",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/919001d8ae11f4ae3fc272cf26846c5dd85e30d6",
+                "reference": "919001d8ae11f4ae3fc272cf26846c5dd85e30d6",
                 "shasum": ""
             },
             "require": {
@@ -317,7 +317,7 @@
                 "proprietary"
             ],
             "description": "Shared tooling of the SuiteCRM projects: make commands, Git hooks, quality configs, CI workflows.",
-            "time": "2026-11-04T21:52:15+00:00"
+            "time": "2026-11-04T22:14:24+00:00"
         },
         {
             "name": "ergebnis/agent-detector",
