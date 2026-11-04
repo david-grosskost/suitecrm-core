@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.5.0...v0.6.0) (2026-11-04)
+
+
+### Features
+
+* pass PHPStan at the strictest level ([#15](https://github.com/david-grosskost/suitecrm-core/issues/15)) ([b3ae032](https://github.com/david-grosskost/suitecrm-core/commit/b3ae032802ed6951ee4639ddd6ca6c37213800d8))
+
 ## [0.5.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.4.0...v0.5.0) (2026-11-04)
 
 
