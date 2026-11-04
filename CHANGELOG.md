@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.3](https://github.com/david-grosskost/suitecrm-core/compare/v0.6.2...v0.6.3) (2026-11-04)
+
+
+### Bug Fixes
+
+* apply the Debian security updates and patch symfony/filesystem ([#21](https://github.com/david-grosskost/suitecrm-core/issues/21)) ([6bb6a07](https://github.com/david-grosskost/suitecrm-core/commit/6bb6a07546cdcaba60eeb4a9e1a1f96684b195a6))
+
 ## [0.6.2](https://github.com/david-grosskost/suitecrm-core/compare/v0.6.1...v0.6.2) (2026-11-04)
 
 
