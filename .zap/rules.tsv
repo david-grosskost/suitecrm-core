@@ -1,0 +1,13 @@
+# OWASP ZAP alerts accepted on purpose (make security@zap): rule id, IGNORE, reason.
+# Review them when SuiteCRM is upgraded.
+10003	IGNORE	(Vulnerable JS Library: the compiled front of SuiteCRM, fixed by upgrading SuiteCRM, like the PHP libraries listed by Trivy)
+10010	IGNORE	(Cookie No HttpOnly Flag: XSRF-TOKEN, read by the Angular front on purpose to send it back as a header)
+10011	IGNORE	(Cookie Without Secure Flag: XSRF-TOKEN, Secure forced to false by SuiteCRM core_services.yaml; the site is HTTPS only with HSTS, so it never travels in clear. SCRMSESSID gets Secure via trusted proxies)
+10038	IGNORE	(CSP Header Not Set: SuiteCRM, the legacy part above all, relies on inline scripts; a strict CSP breaks it. To try later as Report-Only)
+90004	IGNORE	(Cross-Origin-Embedder-Policy: would block the cross-origin resources SuiteCRM may load; no cross-origin isolation needed)
+10015	IGNORE	(Re-examine Cache-control Directives: robots.txt and site.webmanifest, public files)
+10049	IGNORE	(Non-Storable Content: informational)
+10096	IGNORE	(Timestamp Disclosure: numbers in the compiled JavaScript, not timestamps)
+10109	IGNORE	(Modern Web Application: informational, SuiteCRM 8 is an Angular app)
+10110	IGNORE	(Dangerous JS Functions: in the compiled front of SuiteCRM)
+10112	IGNORE	(Session Management Response Identified: informational)

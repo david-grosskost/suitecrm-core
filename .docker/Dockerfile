@@ -45,12 +45,16 @@ ADD https://sourceforge.net/projects/suitecrmtranslations/files/${LANG_PACK_VERS
 # Our French complements (labels the pack leaves in English), see lang/README.md.
 COPY lang/ /tmp/lang/
 
+# Symfony settings added to SuiteCRM's own (config/packages/), see the file.
+COPY .docker/symfony/suitecrm-core.yaml /tmp/symfony/suitecrm-core.yaml
+
 # The language pack is checked against its known SHA-256 first, then installed
 # the way its manifest.php does it: include/, modules/ and install/ copied into
 # public/legacy/. Each file of lang/ is then appended to the pack file at the
 # same path (without its "<?php" line, after removing a closing "?>"), or
-# copied if the pack has none. .image-version identifies this build (version +
-# content hash), so the entrypoint syncs the volume whenever the code changes.
+# copied if the pack has none. Our Symfony settings go last in config/packages/.
+# .image-version identifies this build (version + content hash), so the
+# entrypoint syncs the volume whenever the code changes.
 RUN echo "${LANG_PACK_SHA256}  /tmp/fr_FR.zip" | sha256sum -c --quiet - \
  && mkdir -p /usr/src/suitecrm /tmp/fr_FR \
  && unzip -q /tmp/suitecrm.zip -d /usr/src/suitecrm \
@@ -66,7 +70,8 @@ RUN echo "${LANG_PACK_SHA256}  /tmp/fr_FR.zip" | sha256sum -c --quiet - \
         cp "$file" "$target"; \
       fi; \
     done \
- && rm -rf /tmp/suitecrm.zip /tmp/fr_FR.zip /tmp/fr_FR /tmp/lang \
+ && cp /tmp/symfony/suitecrm-core.yaml /usr/src/suitecrm/config/packages/zz-suitecrm-core.yaml \
+ && rm -rf /tmp/suitecrm.zip /tmp/fr_FR.zip /tmp/fr_FR /tmp/lang /tmp/symfony \
  && hash="$(find /usr/src/suitecrm -type f -print0 | sort -z | xargs -0 sha256sum | sha256sum | cut -c1-12)" \
  && echo "$SUITECRM_VERSION+$hash" > /usr/src/suitecrm/.image-version \
  && chown -R www-data:www-data /usr/src/suitecrm
@@ -77,6 +82,11 @@ COPY scripts/post-install.php /usr/local/share/suitecrm/post-install.php
 
 COPY .docker/apache/suitecrm.conf /etc/apache2/sites-available/000-default.conf
 COPY .docker/php/suitecrm.ini /usr/local/etc/php/conf.d/suitecrm.ini
+
+# Only the reverse proxy reaches the app (Docker networks, private addresses):
+# Symfony then trusts its X-Forwarded-* headers (see .docker/symfony).
+ENV TRUSTED_PROXIES=127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
+
 COPY --chmod=755 .docker/entrypoint.sh /usr/local/bin/suitecrm-entrypoint
 COPY --chmod=755 scripts/install.sh /usr/local/bin/suitecrm-install
 COPY --chmod=755 .docker/cron.sh /usr/local/bin/suitecrm-cron
