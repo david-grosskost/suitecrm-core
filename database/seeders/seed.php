@@ -25,6 +25,13 @@ require_once $seedersDir . '/src/SeedContext.php';
 require_once $seedersDir . '/src/Fr.php';
 require_once $seedersDir . '/src/Runner.php';
 
+// Faker and the factories (database/factories), for the generated volume.
+// Faker is installed in the image next to them (database/vendor, see the Dockerfile).
+require_once $seedersDir . '/../vendor/autoload.php';
+foreach (['Factory', 'AccountFactory', 'ContactFactory', 'OpportunityFactory'] as $factory) {
+    require_once $seedersDir . '/../factories/' . $factory . '.php';
+}
+
 // The records are created by the administrator, with his French formats.
 global $current_user;
 $current_user = BeanFactory::getBean('Users', '1');

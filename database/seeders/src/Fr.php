@@ -21,6 +21,23 @@ final class Fr
     /** Domain reserved for examples (RFC 2606): no mail ever leaves for it. */
     private const DOMAIN = 'example';
 
+    /**
+     * Real French towns with their postcode, for generated addresses: an
+     * address stays consistent (the postcode is the town's).
+     *
+     * @var non-empty-list<array{string, string}>
+     */
+    public const TOWNS = [
+        ['75011', 'Paris'], ['13001', 'Marseille'], ['69002', 'Lyon'], ['31000', 'Toulouse'], ['06000', 'Nice'],
+        ['44000', 'Nantes'], ['34000', 'Montpellier'], ['67000', 'Strasbourg'], ['33000', 'Bordeaux'], ['59000', 'Lille'],
+        ['35000', 'Rennes'], ['51100', 'Reims'], ['42000', 'Saint-Étienne'], ['83000', 'Toulon'], ['38000', 'Grenoble'],
+        ['21000', 'Dijon'], ['49000', 'Angers'], ['30000', 'Nîmes'], ['63000', 'Clermont-Ferrand'], ['72000', 'Le Mans'],
+        ['29200', 'Brest'], ['37000', 'Tours'], ['80000', 'Amiens'], ['87000', 'Limoges'], ['74000', 'Annecy'],
+        ['66000', 'Perpignan'], ['57000', 'Metz'], ['25000', 'Besançon'], ['45000', 'Orléans'], ['68100', 'Mulhouse'],
+        ['76000', 'Rouen'], ['14000', 'Caen'], ['54000', 'Nancy'], ['64000', 'Pau'], ['17000', 'La Rochelle'],
+        ['86000', 'Poitiers'], ['84000', 'Avignon'], ['56000', 'Vannes'], ['73000', 'Chambéry'], ['26000', 'Valence'],
+    ];
+
     /** A fictional phone number, e.g. phone(7) = "01 99 00 00 07". */
     public static function phone(int $number, bool $mobile = false): string
     {
@@ -42,16 +59,25 @@ final class Fr
         return trim((string) preg_replace('/[^a-z0-9]+/', '-', strtolower($ascii)), '-');
     }
 
+    /** Legal forms left out of domain names, as real companies do. */
+    private const LEGAL_FORMS = '/\s+(S\.?A\.?R\.?L\.?|S\.?A\.?S\.?U?|E\.?U\.?R\.?L\.?|S\.?A\.?|S\.?N\.?C\.?)$/u';
+
     /** Fictional e-mail address: "prenom.nom@entreprise.example". */
     public static function email(string $firstName, string $lastName, string $company): string
     {
-        return self::slug($firstName) . '.' . self::slug($lastName) . '@' . self::slug($company) . '.' . self::DOMAIN;
+        return self::slug($firstName) . '.' . self::slug($lastName) . '@' . self::domain($company);
     }
 
     /** Fictional website: "https://www.entreprise.example". */
     public static function website(string $company): string
     {
-        return 'https://www.' . self::slug($company) . '.' . self::DOMAIN;
+        return 'https://www.' . self::domain($company);
+    }
+
+    /** Domain of a company, without its legal form: "Martin Conseil SARL" → "martin-conseil.example". */
+    public static function domain(string $company): string
+    {
+        return self::slug((string) preg_replace(self::LEGAL_FORMS, '', $company)) . '.' . self::DOMAIN;
     }
 
     /**
