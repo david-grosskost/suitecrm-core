@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.6.4...v0.7.0) (2026-11-05)
+
+
+### Features
+
+* seed French demo data with make db@seed ([#27](https://github.com/david-grosskost/suitecrm-core/issues/27)) ([84ae66e](https://github.com/david-grosskost/suitecrm-core/commit/84ae66e79e9fbc4fdb1a33d8b044e0dc94b5141d))
+
 ## [0.6.4](https://github.com/david-grosskost/suitecrm-core/compare/v0.6.3...v0.6.4) (2026-11-05)
 
 
