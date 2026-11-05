@@ -1,0 +1,10 @@
+# Added by suitecrm-core to SuiteCRM's Symfony settings, as the last file of
+# config/packages/ (zz-suitecrm-core.yaml): nothing of SuiteCRM is edited.
+#
+# SuiteCRM runs behind the reverse proxy (Traefik), which ends HTTPS. Trusting
+# its X-Forwarded-* headers lets Symfony see the real request: HTTPS (session
+# cookie with Secure, as cookie_secure is "auto"), client IP and host.
+# TRUSTED_PROXIES is set by the Dockerfile.
+framework:
+  trusted_proxies: '%env(TRUSTED_PROXIES)%'
+  trusted_headers: ['x-forwarded-for', 'x-forwarded-proto', 'x-forwarded-host', 'x-forwarded-port']
