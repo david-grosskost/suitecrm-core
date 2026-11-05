@@ -1,0 +1,21 @@
+# Weekly passive security scan of the demo (OWASP ZAP baseline), from outside:
+# Mondays at 05:23 UTC, or by hand (Actions → ZAP → Run workflow).
+# A high-risk alert fails the run: GitHub e-mails whoever last changed this
+# schedule. The report is kept 30 days with the run. Alerts accepted on
+# purpose: .zap/rules.tsv. GitHub pauses schedules after 60 days without
+# activity in the repository: re-enable it in Actions if that happens.
+# Keep the version in step with suitecrm-devkit in composer.json.
+name: ZAP
+
+on:
+  schedule:
+    - cron: '23 5 * * 1'
+  workflow_dispatch:
+
+jobs:
+  zap:
+    permissions:
+      contents: read
+    uses: david-grosskost/suitecrm-devkit/.github/workflows/zap.yml@v0.12.0
+    with:
+      url: https://demo-core.david-grosskost.fr
