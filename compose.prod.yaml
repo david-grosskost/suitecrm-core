@@ -2,6 +2,10 @@
 # builds it. APP_VERSION is written to .env.local by each deployment.
 # Data lives in the instance directory (/srv/suitecrm/<slug>/data), not in
 # Docker volumes: one instance = one directory, backed up with it.
+# Emails: the server's firewall rejects outgoing SMTP from every container,
+# except those of the smtp-out network (server repo, make firewall@install).
+# Prod alone joins it: its app and cron reach the real mail server, a demo
+# never does.
 
 x-server-image: &server-image
   # No build on a server: only the image of the released version.
@@ -14,10 +18,24 @@ x-server-image: &server-image
 services:
   app:
     <<: *server-image
+    networks:
+      smtp-out:
+        # The default route, hence the SMTP connections, take this network's
+        # gateway: the one the firewall allows.
+        gw_priority: 1
 
   cron:
     <<: *server-image
+    networks:
+      smtp-out:
+        gw_priority: 1
 
   db:
     volumes:
       - ./data/db:/var/lib/mysql
+
+networks:
+  # Created by the server repo (make firewall@install), shared by every prod.
+  smtp-out:
+    name: smtp-out
+    external: true
