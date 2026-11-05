@@ -16,6 +16,6 @@ jobs:
   zap:
     permissions:
       contents: read
-    uses: david-grosskost/suitecrm-devkit/.github/workflows/zap.yml@v0.16.0
+    uses: david-grosskost/suitecrm-devkit/.github/workflows/zap.yml@v0.17.0
     with:
       url: https://demo-core.david-grosskost.fr
