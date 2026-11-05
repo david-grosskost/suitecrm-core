@@ -1,0 +1,34 @@
+# Demo data on demand: Actions → Seed → Run workflow, then choose the seeders
+# and the volume. Never automatic: a demo starts empty, the person who
+# prepares it decides what goes in (later, the demo-manager does it through
+# the GitHub API). A demo only. Safe to run again: records are updated, never
+# duplicated. See database/README.md for the seeders.
+# Keep the version in step with suitecrm-devkit in composer.json.
+name: Seed
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Instance
+        type: choice
+        options: [demo]
+        default: demo
+      seeders:
+        description: "Seeders séparés par des espaces, avec ceux dont ils dépendent (vide : tous). Ex. core/accounts core/contacts"
+        type: string
+        default: ""
+      count:
+        description: "Comptes générés en plus (core/volume), de 0 à 1500"
+        type: number
+        default: 0
+
+jobs:
+  seed:
+    permissions: {}
+    uses: david-grosskost/suitecrm-devkit/.github/workflows/seed.yml@v0.16.0
+    with:
+      environment: ${{ inputs.environment }}
+      seeders: ${{ inputs.seeders }}
+      count: ${{ inputs.count }}
+    secrets: inherit
