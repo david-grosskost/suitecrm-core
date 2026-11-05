@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.9.0...v0.10.0) (2026-11-05)
+
+
+### Features
+
+* let prod instances send emails through smtp-out ([#34](https://github.com/david-grosskost/suitecrm-core/issues/34)) ([77bb6a0](https://github.com/david-grosskost/suitecrm-core/commit/77bb6a076500ce63cb3c3a5fcbc2c2f0ffd75aa8))
+
 ## [0.9.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.8.0...v0.9.0) (2026-11-05)
 
 
