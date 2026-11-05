@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c79dc72db340cc21b09ecbacced5c066",
+    "content-hash": "abb92355e6565277b93c817d00faf09c",
     "packages": [
         {
             "name": "fakerphp/faker",
@@ -487,16 +487,16 @@
         },
         {
             "name": "david-grosskost/suitecrm-devkit",
-            "version": "v0.14.0",
+            "version": "v0.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/david-grosskost/suitecrm-devkit",
-                "reference": "1eec11e4b97e40521bf8b6e7478e7f25906988bd"
+                "reference": "525f1d0a656632a87b2cbc35952c621751e90351"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/1eec11e4b97e40521bf8b6e7478e7f25906988bd",
-                "reference": "1eec11e4b97e40521bf8b6e7478e7f25906988bd",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/525f1d0a656632a87b2cbc35952c621751e90351",
+                "reference": "525f1d0a656632a87b2cbc35952c621751e90351",
                 "shasum": ""
             },
             "require": {
@@ -508,7 +508,7 @@
                 "proprietary"
             ],
             "description": "Shared tooling of the SuiteCRM projects: make commands, Git hooks, quality configs, CI workflows.",
-            "time": "2026-11-05T11:44:06+00:00"
+            "time": "2026-11-05T12:01:23+00:00"
         },
         {
             "name": "ergebnis/agent-detector",
