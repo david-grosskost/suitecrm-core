@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.1](https://github.com/david-grosskost/suitecrm-core/compare/v0.12.0...v0.12.1) (2026-11-05)
+
+
+### Bug Fixes
+
+* **deps:** bump mariadb from 11.8 to 13.0 ([#42](https://github.com/david-grosskost/suitecrm-core/issues/42)) ([516ff19](https://github.com/david-grosskost/suitecrm-core/commit/516ff19670eff52a2c0dbabbd1d492eedfdb6fa7))
+
 ## [0.12.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.11.0...v0.12.0) (2026-11-05)
 
 
