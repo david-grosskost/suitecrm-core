@@ -26,6 +26,11 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    ignore:
+      # The database: its data files cannot go back to an older series, and
+      # the newer series are often rolling (short support). Moved by hand,
+      # from one LTS to the next, after a backup.
+      - dependency-name: mariadb
     groups:
       minor-and-patch:
         update-types: [minor, patch]

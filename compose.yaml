@@ -49,7 +49,10 @@ services:
       - default
 
   db:
-    image: mariadb:13.0
+    # An LTS series (11.8: supported until June 2028), never a rolling one
+    # (12.x, 13.x: a few months of fixes). Its data files only go forward:
+    # changing series is done by hand, with a backup (see .github/dependabot.yml).
+    image: mariadb:11.8
     container_name: ${APP_SLUG}-db
     restart: unless-stopped
     environment:
