@@ -8,6 +8,13 @@ class SugarBean
 {
     /** @var string|null */
     public $id;
+
+    /** @var bool */
+    public $new_with_id = false;
+
+    public function save(bool $check_notify = false): string
+    {
+    }
 }
 
 class Person extends SugarBean
@@ -34,6 +41,10 @@ class BeanFactory
      * @param array<string, mixed> $params
      */
     public static function getBean(string $module, ?string $id = null, array $params = [], bool $deleted = true): SugarBean|false
+    {
+    }
+
+    public static function newBean(string $module): SugarBean|false|null
     {
     }
 }
