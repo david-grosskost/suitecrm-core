@@ -79,6 +79,9 @@ RUN echo "${LANG_PACK_SHA256}  /tmp/fr_FR.zip" | sha256sum -c --quiet - \
 # Shared base configuration (French defaults) and admin alignment, applied once at install
 COPY config/config_override.php /usr/local/share/suitecrm/config_override.php
 COPY scripts/post-install.php /usr/local/share/suitecrm/post-install.php
+# Database scripts: French demo data, loaded on demand (make db@seed), never
+# by the image itself.
+COPY database/ /usr/local/share/suitecrm/database/
 
 COPY .docker/apache/suitecrm.conf /etc/apache2/sites-available/000-default.conf
 COPY .docker/php/suitecrm.ini /usr/local/etc/php/conf.d/suitecrm.ini

@@ -9,12 +9,16 @@ parameters:
     paths:
         - config
         - scripts
+        - database
     tmpDir: .tools/phpstan
     # SuiteCRM classes exist only inside the image: their signatures are here.
     scanFiles:
         - stubs/suitecrm.stub
     ignoreErrors:
-        # post-install.php runs inside the image, after chdir() into SuiteCRM.
+        # These scripts run inside the image, after chdir() into SuiteCRM.
         -
             identifier: requireOnce.fileNotFound
             path: scripts/post-install.php
+        -
+            identifier: requireOnce.fileNotFound
+            path: database/seeders/seed.php
