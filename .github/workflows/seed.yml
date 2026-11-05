@@ -30,5 +30,6 @@ jobs:
     with:
       environment: ${{ inputs.environment }}
       seeders: ${{ inputs.seeders }}
-      count: ${{ inputs.count }}
+      # A string when launched through the API (the demo-manager): made a number.
+      count: ${{ fromJSON(inputs.count) }}
     secrets: inherit
