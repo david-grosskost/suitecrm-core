@@ -49,7 +49,7 @@ services:
       - default
 
   db:
-    image: mariadb:11.8
+    image: mariadb:13.0
     container_name: ${APP_SLUG}-db
     restart: unless-stopped
     environment:
