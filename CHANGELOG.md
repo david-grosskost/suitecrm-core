@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.7.0...v0.8.0) (2026-11-05)
+
+
+### Features
+
+* generate French demo volume with Faker factories ([#29](https://github.com/david-grosskost/suitecrm-core/issues/29)) ([0f32568](https://github.com/david-grosskost/suitecrm-core/commit/0f32568d890cba530ff2746da4b57b3c6babe8bb))
+
 ## [0.7.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.6.4...v0.7.0) (2026-11-05)
 
 
