@@ -29,6 +29,28 @@ make app@install
 Puis ouvrir https://suitecrm-core.dev.localhost. L'administrateur est `admin`, son
 mot de passe est généré dans `.env.local`.
 
+## E-mails
+
+En local et sur les démos, [Mailpit](https://mailpit.axllent.org) reçoit tous les
+e-mails envoyés par SuiteCRM : aucun ne part vers une vraie boîte. À l'installation,
+puis à chaque démarrage et avant le cron (`scripts/mail.php`) :
+
+- tous les comptes sortants (système et utilisateurs) sont redirigés vers Mailpit ;
+- toutes les boîtes de réception (IMAP) sont désactivées.
+
+Une base copiée de la prod est donc neutralisée au démarrage. Pour l'importer,
+arrêter d'abord l'application (`make app@stop`), puis redémarrer : le cron ne
+tourne jamais sur une base non neutralisée.
+
+| Environnement | Boîte de réception | Accès |
+| --- | --- | --- |
+| local | https://mail-suitecrm-core.dev.localhost | libre |
+| demo | `https://mail-<APP_HOST>` | `demo` / `MAILPIT_PASSWORD` de `.env.local` |
+| prod | pas de Mailpit | serveur SMTP réel, réglé par l'administrateur |
+
+Chaque instance a son Mailpit et son mot de passe : une démo n'ouvre jamais la
+boîte d'une autre.
+
 ## Commandes
 
 `make` seul liste toutes les commandes. Elles viennent de

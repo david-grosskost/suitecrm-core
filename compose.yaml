@@ -21,8 +21,9 @@ services:
       db:
         condition: service_healthy
     healthcheck:
-      # Healthy once the entrypoint has synced the code into the volume.
-      test: ["CMD", "test", "-f", "/var/www/html/.image-version"]
+      # Healthy once the entrypoint has synced the code and, in local and demo,
+      # pointed every email to Mailpit (scripts/mail.php).
+      test: ["CMD", "test", "-f", "/run/suitecrm-ready"]
       interval: 5s
       timeout: 3s
       retries: 60
