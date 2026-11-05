@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.2](https://github.com/david-grosskost/suitecrm-core/compare/v0.12.1...v0.12.2) (2026-11-05)
+
+
+### Bug Fixes
+
+* **deps:** pin mariadb back to the 11.8 lts ([#44](https://github.com/david-grosskost/suitecrm-core/issues/44)) ([55031a0](https://github.com/david-grosskost/suitecrm-core/commit/55031a000bf5d3084b3da6ed1cbb67bd15a84165))
+
 ## [0.12.1](https://github.com/david-grosskost/suitecrm-core/compare/v0.12.0...v0.12.1) (2026-11-05)
 
 
