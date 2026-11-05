@@ -5,6 +5,14 @@ ARG PHP_VERSION=8.4
 # Tool stage: only its install-php-extensions script is copied below.
 FROM mlocati/php-extension-installer:2 AS php-extension-installer
 
+# Faker, for the generated demo data (database/factories): the production
+# dependencies of composer.json only (never the devkit), copied below into
+# database/vendor. Listed in composer.lock, so composer audit checks it too.
+FROM composer:2 AS database-vendor
+WORKDIR /app
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-interaction --no-progress --no-scripts --classmap-authoritative
+
 FROM php:${PHP_VERSION}-apache AS base
 
 # A failing command anywhere in a pipe fails the RUN (hadolint DL4006).
@@ -82,6 +90,7 @@ COPY scripts/post-install.php /usr/local/share/suitecrm/post-install.php
 # Database scripts: French demo data, loaded on demand (make db@seed), never
 # by the image itself.
 COPY database/ /usr/local/share/suitecrm/database/
+COPY --from=database-vendor /app/vendor /usr/local/share/suitecrm/database/vendor
 
 COPY .docker/apache/suitecrm.conf /etc/apache2/sites-available/000-default.conf
 COPY .docker/php/suitecrm.ini /usr/local/etc/php/conf.d/suitecrm.ini

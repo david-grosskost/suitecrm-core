@@ -3,7 +3,9 @@
 # www-data in the app container. Safe to run again: records are updated,
 # never duplicated. Never in prod: demo data has nothing to do there.
 #
-# @usage make db@seed [SEEDERS="core/accounts core/contacts"]
+# COUNT: number of generated accounts (seeder core/volume), none by default.
+#
+# @usage make db@seed [SEEDERS="core/accounts core/contacts"] [COUNT=200]
 set -euo pipefail
 . vendor/david-grosskost/suitecrm-devkit/.make/scripts/lib.sh
 
@@ -16,4 +18,4 @@ docker inspect "$container" >/dev/null 2>&1 \
 
 # SEEDERS holds seeder names separated by spaces: split on purpose.
 # shellcheck disable=SC2086
-run docker exec -u www-data "$container" php /usr/local/share/suitecrm/database/seeders/seed.php ${SEEDERS:-}
+run docker exec -u www-data -e SEED_COUNT="${COUNT:-0}" "$container" php /usr/local/share/suitecrm/database/seeders/seed.php ${SEEDERS:-}
