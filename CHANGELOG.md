@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.8.0...v0.9.0) (2026-11-05)
+
+
+### Features
+
+* catch local and demo emails with Mailpit ([323c7b6](https://github.com/david-grosskost/suitecrm-core/commit/323c7b6582123f8b276bf073f4f4a567146f0fb2))
+
 ## [0.8.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.7.0...v0.8.0) (2026-11-05)
 
 
