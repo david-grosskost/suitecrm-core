@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.11.0...v0.12.0) (2026-11-05)
+
+
+### Features
+
+* skip the setup wizard for the administrator ([#39](https://github.com/david-grosskost/suitecrm-core/issues/39)) ([9a641ab](https://github.com/david-grosskost/suitecrm-core/commit/9a641ab155f42eace347f8d7726eded6d9855ee6))
+
 ## [0.11.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.10.0...v0.11.0) (2026-11-05)
 
 
