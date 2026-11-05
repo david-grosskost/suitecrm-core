@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.10.0...v0.11.0) (2026-11-05)
+
+
+### Features
+
+* seed a demo on demand from a workflow ([#36](https://github.com/david-grosskost/suitecrm-core/issues/36)) ([5f64513](https://github.com/david-grosskost/suitecrm-core/commit/5f64513abfd6ebc1fc1713217f723df778ce1c73))
+
 ## [0.10.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.9.0...v0.10.0) (2026-11-05)
 
 
