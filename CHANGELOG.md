@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.4](https://github.com/david-grosskost/suitecrm-core/compare/v0.6.3...v0.6.4) (2026-11-05)
+
+
+### Bug Fixes
+
+* hide server versions and secure the session cookie ([#24](https://github.com/david-grosskost/suitecrm-core/issues/24)) ([6b041c9](https://github.com/david-grosskost/suitecrm-core/commit/6b041c99201e12979a53790e4b429513a6cebe23))
+
 ## [0.6.3](https://github.com/david-grosskost/suitecrm-core/compare/v0.6.2...v0.6.3) (2026-11-04)
 
 
