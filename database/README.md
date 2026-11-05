@@ -20,6 +20,21 @@ make db@seed SEEDERS="core/contacts"      # un seeder (et ceux dont il dépend)
 
 Jamais en prod : la commande refuse de tourner avec `APP_ENV=prod`.
 
+### Sur une démo
+
+Une démo déployée démarre vide : ses données se chargent **à la demande**, jamais
+automatiquement. Sur GitHub, **Actions → Seed → Run workflow**, puis choisir :
+
+| Champ | Exemple | Effet |
+|---|---|---|
+| Seeders | vide | tout `core` (20 comptes, 40 contacts, 22 opportunités) |
+| Seeders | `core/contacts` | les contacts, et les comptes dont ils dépendent |
+| Count | `200` | 200 comptes générés en plus (`core/volume`), de 0 à 1 500 |
+
+Le serveur est sauvegardé juste avant (étiquette `pre-seed`) : le résumé du workflow donne
+la commande pour revenir en arrière. Refusé pour la prod, sur GitHub comme sur le serveur.
+Plus tard, l'interface commerciale (demo-manager) lancera ce même workflow.
+
 ### Ce que contient `core`
 
 | Seeder | Données |
