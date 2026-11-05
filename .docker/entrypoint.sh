@@ -11,6 +11,11 @@ set -euo pipefail
 
 SRC=/usr/src/suitecrm
 APP=/var/www/html
+# Created once the container is ready (used by the healthcheck, hence by the
+# cron container, which waits for it). Removed first: a restarted container is
+# not ready before this script has run again.
+READY=/run/suitecrm-ready
+rm -f "$READY"
 
 image_version="$(cat "$SRC/.image-version")"
 app_version="$(cat "$APP/.image-version" 2>/dev/null || true)"
@@ -46,8 +51,18 @@ if [ "$image_version" != "$app_version" ]; then
     find "$APP/public/legacy/cache/modules" -path '*/language/*.lang.php' -delete
   fi
 
-  # Written last: marks the sync as complete (used by the healthcheck).
+  # Written last: marks the sync as complete.
   cp -p "$SRC/.image-version" "$APP/.image-version"
 fi
+
+# Local and demo: every email goes to Mailpit, set again at each start so that
+# a change in the admin screens never lets a demo send real emails. Once
+# installed only: on a new instance, suitecrm-install does it. Before READY:
+# the cron container, which sends and fetches emails, starts after this.
+if [ -n "${MAIL_SMTP_HOST:-}" ] && [ -f "$APP/public/legacy/config.php" ]; then
+  runuser -u www-data -- php /usr/local/share/suitecrm/mail.php
+fi
+
+touch "$READY"
 
 exec "$@"

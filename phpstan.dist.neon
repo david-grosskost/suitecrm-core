@@ -21,4 +21,7 @@ parameters:
             path: scripts/post-install.php
         -
             identifier: requireOnce.fileNotFound
+            path: scripts/mail.php
+        -
+            identifier: requireOnce.fileNotFound
             path: database/seeders/seed.php

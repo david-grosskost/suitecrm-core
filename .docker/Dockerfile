@@ -87,6 +87,8 @@ RUN echo "${LANG_PACK_SHA256}  /tmp/fr_FR.zip" | sha256sum -c --quiet - \
 # Shared base configuration (French defaults) and admin alignment, applied once at install
 COPY config/config_override.php /usr/local/share/suitecrm/config_override.php
 COPY scripts/post-install.php /usr/local/share/suitecrm/post-install.php
+# SMTP server of the environment (Mailpit in local and demo), see the script.
+COPY scripts/mail.php /usr/local/share/suitecrm/mail.php
 # Database scripts: French demo data, loaded on demand (make db@seed), never
 # by the image itself.
 COPY database/ /usr/local/share/suitecrm/database/

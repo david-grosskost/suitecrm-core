@@ -34,3 +34,8 @@ echo "  Configuration de base appliquée (français par défaut)."
 
 # The admin was created before the base configuration: align its preferences.
 php /usr/local/share/suitecrm/post-install.php
+
+# Local and demo: every email goes to Mailpit (MAIL_SMTP_HOST, see compose.*.yaml).
+if [ -n "${MAIL_SMTP_HOST:-}" ]; then
+  php /usr/local/share/suitecrm/mail.php
+fi

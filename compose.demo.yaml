@@ -2,7 +2,10 @@
 # GHCR, never builds it. APP_VERSION is written to .env.local by each deployment.
 # Data lives in the instance directory (/srv/suitecrm/<slug>/data), not in
 # Docker volumes: one instance = one directory, backed up with it.
-# Demo-only services (Mailpit, phase 4) will be added here.
+# Mailpit catches every email sent by SuiteCRM: a demo never writes to a real
+# inbox. Inbox on https://mail-<APP_HOST>, behind a password (MAILPIT_PASSWORD
+# in .env.local). One level only under the domain: the wildcard certificate
+# covers *.david-grosskost.fr, not *.demo-core.david-grosskost.fr.
 
 x-server-image: &server-image
   # No build on a server: only the image of the released version.
@@ -15,6 +18,12 @@ x-server-image: &server-image
 services:
   app:
     <<: *server-image
+    environment:
+      # Written to the database at install and at each start (scripts/mail.php):
+      # the schedulers (campaigns, reminders) read it there too.
+      MAIL_SMTP_HOST: mailpit
+      MAIL_SMTP_PORT: 1025
+      MAIL_FROM_ADDRESS: crm@${APP_HOST}
 
   cron:
     <<: *server-image
@@ -22,3 +31,20 @@ services:
   db:
     volumes:
       - ./data/db:/var/lib/mysql
+
+  mailpit:
+    image: axllent/mailpit:v1.33.0
+    container_name: ${APP_SLUG}-mailpit
+    restart: unless-stopped
+    environment:
+      # Web interface and API. Unique per instance: one demo's password never
+      # opens another's inbox.
+      MP_UI_AUTH: ${MAILPIT_USER:-demo}:${MAILPIT_PASSWORD:?MAILPIT_PASSWORD manquant dans .env.local}
+    networks:
+      - proxy
+      - default
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.${APP_SLUG}-mail.rule=Host(`mail-${APP_HOST}`)
+      - traefik.http.routers.${APP_SLUG}-mail.entrypoints=websecure
+      - traefik.http.services.${APP_SLUG}-mail.loadbalancer.server.port=8025
