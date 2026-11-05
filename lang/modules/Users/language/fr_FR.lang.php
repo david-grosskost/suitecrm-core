@@ -49,6 +49,7 @@ $mod_strings['LBL_MAIL_SMTPPORT'] = 'Port SMTP';
 $mod_strings['LBL_NEW_PASSWORD2'] = 'Confirmer le mot de passe';
 $mod_strings['LBL_OTHER_PHONE'] = 'Autre téléphone';
 $mod_strings['LBL_PASSWORD'] = 'Mot de passe';
+$mod_strings['LBL_PASSWORD_EXPIRATION_LOGIN'] = 'Votre mot de passe doit être changé. Saisissez un nouveau mot de passe.';
 $mod_strings['LBL_PASSWORD_EXPIRATION_TIME'] = 'Votre mot de passe a expiré. Saisissez un nouveau mot de passe.';
 $mod_strings['LBL_PSW_MODIFIED'] = 'Dernier changement du mot de passe';
 $mod_strings['LBL_PORTAL_ONLY_USER'] = 'Utilisateur API du portail';

@@ -29,6 +29,10 @@ $preferences = [
     'num_grp_sep' => $sugar_config['default_number_grouping_seperator'],
     'export_delimiter' => $sugar_config['export_delimiter'],
     'currency' => '-99', // -99 = the system currency (EUR)
+    // Time zone and "setup done": no setup wizard at the first login, its
+    // settings are those above.
+    'timezone' => 'Europe/Paris',
+    'ut' => '1',
 ];
 
 foreach ($preferences as $name => $value) {
