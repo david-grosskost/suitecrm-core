@@ -13,6 +13,9 @@ $sugar_config['languages'] = [
     'fr_FR' => 'Français (France)',
 ];
 $sugar_config['default_language'] = 'fr_FR';
+// No language picker on the login page: everyone logs in in French, then
+// may choose English in their profile.
+$sugar_config['login_language'] = false;
 
 // Dates and times: 31/12/2026 23:59
 $sugar_config['datef'] = 'd/m/Y';
