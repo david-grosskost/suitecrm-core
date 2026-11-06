@@ -11,6 +11,34 @@ final class SeedContext
 {
     private int $saved = 0;
 
+    /** @var array<string, int>|null Probability of each sales stage, read once. */
+    private static ?array $probabilities = null;
+
+    /**
+     * Probability SuiteCRM gives a sales stage (sales_probability_dom, the
+     * value it fills in when a user picks the stage): read from SuiteCRM, so
+     * that the seeded opportunities follow its settings.
+     */
+    public static function probability(string $stage): int
+    {
+        if (self::$probabilities === null) {
+            /** @var mixed $sugarConfig */
+            $sugarConfig = $GLOBALS['sugar_config'] ?? [];
+            $language = is_array($sugarConfig) && is_string($sugarConfig['default_language'] ?? null)
+                ? $sugarConfig['default_language'] : 'en_us';
+            $list = \return_app_list_strings_language($language)['sales_probability_dom'] ?? null;
+            self::$probabilities = [];
+            foreach (is_array($list) ? $list : [] as $key => $value) {
+                if (is_numeric($value)) {
+                    self::$probabilities[(string) $key] = (int) $value;
+                }
+            }
+        }
+
+        return self::$probabilities[$stage]
+            ?? throw new \RuntimeException("seed : pas de probabilité pour l'étape « {$stage} » (sales_probability_dom)");
+    }
+
     /**
      * Id of a seeded record, the same on every run: from the module and a key
      * chosen by the seeder (e.g. "Accounts", "durand-btp"). A UUID (version 5

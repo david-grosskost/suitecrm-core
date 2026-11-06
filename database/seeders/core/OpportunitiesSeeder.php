@@ -63,7 +63,7 @@ final class OpportunitiesSeeder implements Seeder
                 'amount' => $amount,
                 'currency_id' => '-99',
                 'sales_stage' => $stage,
-                'probability' => self::probability($stage),
+                'probability' => SeedContext::probability($stage),
                 'date_closed' => Fr::date($closeIn),
                 'opportunity_type' => $type,
                 'lead_source' => $source,
@@ -71,22 +71,5 @@ final class OpportunitiesSeeder implements Seeder
                 'contact_id' => SeedContext::id('Contacts', ContactsSeeder::key($account, 0)),
             ]);
         }
-    }
-
-    /** Usual probability of a stage, as SuiteCRM suggests it (sales_probability_dom). */
-    private static function probability(string $stage): int
-    {
-        return match ($stage) {
-            'Prospecting' => 10,
-            'Qualification' => 20,
-            'Needs Analysis' => 25,
-            'Value Proposition' => 30,
-            'Id. Decision Makers' => 40,
-            'Perception Analysis' => 50,
-            'Proposal/Price Quote' => 65,
-            'Negotiation/Review' => 80,
-            'Closed Won' => 100,
-            default => 0,
-        };
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SuiteCrmCore\Seed\Factories;
 
 use SuiteCrmCore\Seed\Fr;
+use SuiteCrmCore\Seed\SeedContext;
 
 /**
  * A generated sales opportunity: French project name, amount, stage, and a
@@ -19,11 +20,10 @@ final class OpportunityFactory extends Factory
         'Application mobile terrain', 'Campagnes e-mailing', 'Gestion des contrats', 'Support premium',
     ];
 
-    /** Sales stages (sales_stage_dom) with their usual probability. */
+    /** Sales stages (sales_stage_dom keys); their probability comes from SuiteCRM. */
     private const STAGES = [
-        'Prospecting' => 10, 'Qualification' => 20, 'Needs Analysis' => 25, 'Value Proposition' => 30,
-        'Id. Decision Makers' => 40, 'Perception Analysis' => 50, 'Proposal/Price Quote' => 65,
-        'Negotiation/Review' => 80, 'Closed Won' => 100, 'Closed Lost' => 0,
+        'Prospecting', 'Qualification', 'Needs Analysis', 'Value Proposition', 'Id. Decision Makers',
+        'Perception Analysis', 'Proposal/Price Quote', 'Negotiation/Review', 'Closed Won', 'Closed Lost',
     ];
 
     /** Lead sources (lead_source_dom). */
@@ -37,7 +37,7 @@ final class OpportunityFactory extends Factory
      */
     public function make(): array
     {
-        $stage = $this->pick(array_keys(self::STAGES));
+        $stage = $this->pick(self::STAGES);
         $closed = str_starts_with($stage, 'Closed');
 
         return [
@@ -45,7 +45,7 @@ final class OpportunityFactory extends Factory
             'amount' => $this->faker->numberBetween(15, 800) * 100,
             'currency_id' => '-99',
             'sales_stage' => $stage,
-            'probability' => self::STAGES[$stage],
+            'probability' => SeedContext::probability($stage),
             'date_closed' => Fr::date($closed ? -$this->faker->numberBetween(1, 180) : $this->faker->numberBetween(1, 180)),
             'opportunity_type' => $this->pick(['New Business', 'Existing Business']),
             'lead_source' => $this->pick(self::SOURCES),

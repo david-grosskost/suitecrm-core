@@ -128,3 +128,13 @@ class BeanFactory
     {
     }
 }
+
+/**
+ * The dropdown lists of SuiteCRM (app_list_strings) in a language, merged
+ * with the English ones.
+ *
+ * @return array<string, mixed>
+ */
+function return_app_list_strings_language(string $language): array
+{
+}
