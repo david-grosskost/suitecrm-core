@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.12.2...v0.13.0) (2026-11-06)
+
+
+### Features
+
+* hide the language picker of the login page ([#49](https://github.com/david-grosskost/suitecrm-core/issues/49)) ([8d11a79](https://github.com/david-grosskost/suitecrm-core/commit/8d11a797b1bc6d8f1d592ca3b7b011e6029814df))
+
 ## [0.12.2](https://github.com/david-grosskost/suitecrm-core/compare/v0.12.1...v0.12.2) (2026-11-05)
 
 
