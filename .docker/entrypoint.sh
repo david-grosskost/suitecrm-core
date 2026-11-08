@@ -55,6 +55,10 @@ if [ "$image_version" != "$app_version" ]; then
   cp -p "$SRC/.image-version" "$APP/.image-version"
 fi
 
+# Extensions chosen for this instance (EXTENSIONS, see compose.yaml), from
+# those of the image: only does something when the list or the image changes.
+suitecrm-extensions
+
 # Local and demo: every email goes to Mailpit, set again at each start so that
 # a change in the admin screens never lets a demo send real emails. Once
 # installed only: on a new instance, suitecrm-install does it. Before READY:

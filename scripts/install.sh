@@ -39,3 +39,9 @@ php /usr/local/share/suitecrm/post-install.php
 if [ -n "${MAIL_SMTP_HOST:-}" ]; then
   php /usr/local/share/suitecrm/mail.php
 fi
+
+# Extensions activated by the entrypoint before the install: Quick Repair
+# merges them, and creates the fields they add.
+if [ -s .extensions/active ]; then
+  php /usr/local/share/suitecrm/repair.php
+fi

@@ -1,24 +1,35 @@
 # syntax=docker/dockerfile:1
 
 ARG PHP_VERSION=8.4
+# Used by two stages: the image's code (base) and the extensions checked
+# against it (vendor).
+ARG SUITECRM_VERSION=8.10.2
 
 # Tool stage: only its install-php-extensions script is copied below.
 FROM mlocati/php-extension-installer:2 AS php-extension-installer
 
-# Faker, for the generated demo data (database/factories): the production
-# dependencies of composer.json only (never the devkit), copied below into
-# database/vendor. Listed in composer.lock, so composer audit checks it too.
-FROM composer:2 AS database-vendor
+# Production dependencies of composer.json only (never the devkit). Listed in
+# composer.lock, so composer audit checks them too:
+# - Faker, for the generated demo data (database/factories), copied below
+#   into database/vendor;
+# - the extensions (Composer type suitecrm-extension), checked against the
+#   SuiteCRM version of the image and gathered into catalog/ (see
+#   scripts/extensions-catalog.php), copied below; EXTENSIONS chooses those
+#   each instance runs (scripts/extensions.sh).
+FROM composer:2 AS vendor
+ARG SUITECRM_VERSION
 WORKDIR /app
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --no-interaction --no-progress --no-scripts --classmap-authoritative
+COPY scripts/extensions-catalog.php ./
+RUN php extensions-catalog.php "$SUITECRM_VERSION" vendor catalog
 
 FROM php:${PHP_VERSION}-apache AS base
 
 # A failing command anywhere in a pipe fails the RUN (hadolint DL4006).
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ARG SUITECRM_VERSION=8.10.2
+ARG SUITECRM_VERSION
 
 # French language pack, matching the SuiteCRM minor version (SourceForge, folder 8.10)
 ARG LANG_PACK_VERSION=8.10
@@ -92,7 +103,11 @@ COPY scripts/mail.php /usr/local/share/suitecrm/mail.php
 # Database scripts: French demo data, loaded on demand (make db@seed), never
 # by the image itself.
 COPY database/ /usr/local/share/suitecrm/database/
-COPY --from=database-vendor /app/vendor /usr/local/share/suitecrm/database/vendor
+COPY --from=vendor /app/vendor /usr/local/share/suitecrm/database/vendor
+# Extensions of the image and their activation (EXTENSIONS, at each start),
+# with the Quick Repair they need.
+COPY --from=vendor /app/catalog/ /usr/local/share/suitecrm/extensions/
+COPY scripts/repair.php /usr/local/share/suitecrm/repair.php
 
 COPY .docker/apache/suitecrm.conf /etc/apache2/sites-available/000-default.conf
 COPY .docker/php/suitecrm.ini /usr/local/etc/php/conf.d/suitecrm.ini
@@ -104,6 +119,7 @@ ENV TRUSTED_PROXIES=127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
 COPY --chmod=755 .docker/entrypoint.sh /usr/local/bin/suitecrm-entrypoint
 COPY --chmod=755 scripts/install.sh /usr/local/bin/suitecrm-install
 COPY --chmod=755 .docker/cron.sh /usr/local/bin/suitecrm-cron
+COPY --chmod=755 scripts/extensions.sh /usr/local/bin/suitecrm-extensions
 
 WORKDIR /var/www/html
 
