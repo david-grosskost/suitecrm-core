@@ -138,3 +138,25 @@ class BeanFactory
 function return_app_list_strings_language(string $language): array
 {
 }
+
+/**
+ * The labels of a module (mod_strings) in a language, merged with the
+ * English ones.
+ *
+ * @return array<string, mixed>
+ */
+function return_module_language(string $language, string $module, bool $refresh = false): array
+{
+}
+
+/** Administration > Repair (modules/Administration/QuickRepairAndRebuild.php). */
+class RepairAndClear
+{
+    /**
+     * @param list<string> $selected_actions
+     * @param list<string> $modules
+     */
+    public function repairAndClearAll(array $selected_actions, array $modules, bool $autoexecute = false, bool $show_output = true, string $metadata_sections = ''): void
+    {
+    }
+}

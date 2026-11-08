@@ -51,6 +51,33 @@ tourne jamais sur une base non neutralisée.
 Chaque instance a son Mailpit et son mot de passe : une démo n'ouvre jamais la
 boîte d'une autre.
 
+## Extensions
+
+Les extensions (modèle :
+[suitecrm-extension-template](https://github.com/david-grosskost/suitecrm-extension-template))
+sont des paquets Composer de type `suitecrm-extension`.
+
+- **Catalogue** : celles que `composer.json` requiert sont mises dans l'image au
+  build (`scripts/extensions-catalog.php`). Une extension non compatible avec la
+  version de SuiteCRM de l'image (clé `suitecrm` de son `extension.json`) fait
+  échouer le build.
+- **Activation** : `EXTENSIONS` (`.env`, ou `.env.local` pour une instance)
+  liste celles que l'instance fait tourner, séparées par des virgules. À chaque
+  démarrage, `suitecrm-extensions` les installe dans l'application, retire
+  celles qui ne sont plus listées, et lance une réparation rapide quand la
+  liste ou leur contenu change.
+- Une extension n'écrase jamais un fichier de `public/legacy/custom/` qui ne
+  vient pas d'elle : le démarrage s'arrête avec le nom du fichier.
+
+Ajouter une extension au catalogue :
+
+```bash
+make composer@update PACKAGES=david-grosskost/suitecrm-ext-<slug>
+```
+
+après avoir déclaré son dépôt dans `repositories` et l'avoir mise dans
+`require` de `composer.json`.
+
 ## Commandes
 
 `make` seul liste toutes les commandes. Elles viennent de

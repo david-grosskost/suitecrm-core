@@ -17,6 +17,10 @@ services:
   app:
     <<: *suitecrm
     container_name: ${APP_SLUG}-app
+    environment:
+      # Extensions this instance runs, among those of the image (slugs,
+      # separated by commas or spaces), see scripts/extensions.sh.
+      EXTENSIONS: ${EXTENSIONS:-}
     depends_on:
       db:
         condition: service_healthy

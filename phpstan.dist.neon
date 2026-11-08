@@ -25,3 +25,6 @@ parameters:
         -
             identifier: requireOnce.fileNotFound
             path: database/seeders/seed.php
+        -
+            identifier: requireOnce.fileNotFound
+            path: scripts/repair.php
