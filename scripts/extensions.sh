@@ -63,6 +63,11 @@ for list in "$STATE"/*.files; do
   slug="$(basename "$list" .files)"
   while IFS= read -r file; do
     rm -f "$LEGACY/$file"
+    # Its directories too, once empty (custom/ itself stays).
+    dir="$(dirname "$file")"
+    while [ "$dir" != . ] && rmdir "$LEGACY/$dir" 2>/dev/null; do
+      dir="$(dirname "$dir")"
+    done
   done < "$list"
   rm -rf "${APP:?}/extensions/$slug"
   rm -f "$list"
