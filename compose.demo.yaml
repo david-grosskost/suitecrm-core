@@ -24,6 +24,9 @@ services:
       MAIL_SMTP_HOST: mailpit
       MAIL_SMTP_PORT: 1025
       MAIL_FROM_ADDRESS: crm@${APP_HOST}
+      # The admin password of .env.local opens one session only: SuiteCRM asks
+      # for a new one at the first login (scripts/post-install.php).
+      ADMIN_PASSWORD_ONCE: "1"
 
   cron:
     <<: *server-image
