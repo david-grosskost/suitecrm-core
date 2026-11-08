@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.15.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.14.0...v0.15.0) (2026-11-08)
+
+
+### Features
+
+* make the server admin password single use ([#53](https://github.com/david-grosskost/suitecrm-core/issues/53)) ([5188f73](https://github.com/david-grosskost/suitecrm-core/commit/5188f73d3cc66538dc99557ca51332e9244c558b))
+
 ## [0.14.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.13.0...v0.14.0) (2026-11-08)
 
 
