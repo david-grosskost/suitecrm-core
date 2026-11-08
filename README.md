@@ -27,7 +27,8 @@ make app@install
 ```
 
 Puis ouvrir https://suitecrm-core.dev.localhost. L'administrateur est `admin`, son
-mot de passe est généré dans `.env.local`.
+mot de passe est généré dans `.env.local`. Sur un serveur (demo, prod), ce mot de passe
+ne sert qu'à la première connexion : SuiteCRM en demande aussitôt un nouveau.
 
 ## E-mails
 

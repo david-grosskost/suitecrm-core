@@ -7,12 +7,17 @@
         {
             "type": "vcs",
             "url": "https://github.com/david-grosskost/suitecrm-devkit",
-			"no-api": true
-
+            "no-api": true
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/david-grosskost/suitecrm-ext-upstream-fixes",
+            "no-api": true
         }
     ],
     "require": {
         "composer/semver": "^3.4",
+        "david-grosskost/suitecrm-ext-upstream-fixes": "^0.1",
         "fakerphp/faker": "^1.24"
     },
     "require-dev": {

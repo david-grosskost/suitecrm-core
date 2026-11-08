@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a05b8d3753a0f704423345182960ab50",
+    "content-hash": "221053b29f94ea9022c7575d0bf16fec",
     "packages": [
         {
             "name": "composer/semver",
@@ -83,6 +83,41 @@
             ],
             "time": "2026-10-29T09:13:34+00:00",
             "published-time": "2026-10-29T09:14:11+00:00"
+        },
+        {
+            "name": "david-grosskost/suitecrm-ext-upstream-fixes",
+            "version": "v0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/david-grosskost/suitecrm-ext-upstream-fixes",
+                "reference": "423fb657f0c8902a33e8a0a02555d09cdce5e272"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-upstream-fixes/zipball/423fb657f0c8902a33e8a0a02555d09cdce5e272",
+                "reference": "423fb657f0c8902a33e8a0a02555d09cdce5e272",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.4"
+            },
+            "require-dev": {
+                "david-grosskost/suitecrm-devkit": "^0.19"
+            },
+            "type": "suitecrm-extension",
+            "autoload-dev": {
+                "classmap": [
+                    "legacy/include/"
+                ],
+                "psr-4": {
+                    "SuiteCrmExt\\UpstreamFixes\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Correctifs de bugs de SuiteCRM, en attendant leur correction dans SuiteCRM.",
+            "time": "2026-11-08T20:34:48+00:00"
         },
         {
             "name": "fakerphp/faker",

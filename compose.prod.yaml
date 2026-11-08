@@ -18,6 +18,10 @@ x-server-image: &server-image
 services:
   app:
     <<: *server-image
+    environment:
+      # The admin password of .env.local opens one session only: SuiteCRM asks
+      # for a new one at the first login (scripts/post-install.php).
+      ADMIN_PASSWORD_ONCE: "1"
     networks:
       smtp-out:
         # The default route, hence the SMTP connections, take this network's
