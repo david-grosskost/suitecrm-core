@@ -522,16 +522,16 @@
         },
         {
             "name": "david-grosskost/suitecrm-devkit",
-            "version": "v0.21.0",
+            "version": "v0.21.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/david-grosskost/suitecrm-devkit",
-                "reference": "b577e02b3c6398e58ec4849d725a7f15871826b0"
+                "reference": "523926873230aa4eb9cf33f9b940a7c74172ce58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/b577e02b3c6398e58ec4849d725a7f15871826b0",
-                "reference": "b577e02b3c6398e58ec4849d725a7f15871826b0",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/523926873230aa4eb9cf33f9b940a7c74172ce58",
+                "reference": "523926873230aa4eb9cf33f9b940a7c74172ce58",
                 "shasum": ""
             },
             "require": {
@@ -544,7 +544,7 @@
                 "proprietary"
             ],
             "description": "Shared tooling of the SuiteCRM projects: make commands, Git hooks, quality configs, CI workflows.",
-            "time": "2026-11-11T21:24:00+00:00"
+            "time": "2026-11-11T21:37:35+00:00"
         },
         {
             "name": "ergebnis/agent-detector",
