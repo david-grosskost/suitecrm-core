@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1023c05d58838c2be9c9e5bc1993b650",
+    "content-hash": "a1bbffaadd499272267bf869280b53ef",
     "packages": [
         {
             "name": "composer/semver",
@@ -152,6 +152,38 @@
             ],
             "description": "Contrôles des entreprises françaises sur les comptes SuiteCRM : SIRET et code NAF (extension de french-company-fields).",
             "time": "2026-11-12T12:11:21+00:00"
+        },
+        {
+            "name": "david-grosskost/suitecrm-ext-front-customizer",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/david-grosskost/suitecrm-ext-front-customizer",
+                "reference": "fbe138cf1559ce837f0eb444f6fa2097d96443ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-front-customizer/zipball/fbe138cf1559ce837f0eb444f6fa2097d96443ac",
+                "reference": "fbe138cf1559ce837f0eb444f6fa2097d96443ac",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.4"
+            },
+            "require-dev": {
+                "david-grosskost/suitecrm-devkit": "^0.22"
+            },
+            "type": "suitecrm-extension",
+            "autoload-dev": {
+                "psr-4": {
+                    "SuiteCrmExt\\FrontCustomizer\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Personnalisation de l'interface de SuiteCRM 8 (module Angular) : montants au format français.",
+            "time": "2026-11-12T15:35:46+00:00"
         },
         {
             "name": "david-grosskost/suitecrm-ext-opportunity-reminders",
