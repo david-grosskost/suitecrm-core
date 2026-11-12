@@ -4,8 +4,10 @@
 # built from composer.json by scripts/extensions-catalog.php). See the
 # architecture decisions, "Format des extensions".
 #
-# - SuiteCRM 8 layer: backend/ and config/ go to extensions/<slug>/, which
-#   Symfony loads by itself;
+# - SuiteCRM 8 layer: backend/ and config/ go to extensions/<Name>/, the slug in
+#   PascalCase (french-company-fields → FrenchCompanyFields), which Symfony
+#   loads by itself: PHP classes there are App\Extension\<Name>\backend\…, and
+#   a hyphen is not allowed in a namespace;
 # - legacy layer: legacy/… goes to public/legacy/custom/…, file by file; the
 #   files written are listed in .extensions/<slug>.files, so that an extension
 #   that is turned off or changed leaves nothing behind. A file already there
@@ -31,6 +33,12 @@ die () {
   echo "suitecrm-extensions : $*" >&2
   exit 1
 }
+
+# Directory of an extension in extensions/: its slug in PascalCase, a valid
+# PHP namespace segment.
+#
+# @param string $1 Slug
+namespace_dir () { sed -E 's/(^|-)([a-z0-9])/\U\2/g' <<< "$1"; }
 
 read -ra wanted <<< "${EXTENSIONS//,/ }"
 mapfile -t wanted < <(printf '%s\n' "${wanted[@]}" | grep -v '^$' | sort -u)
@@ -69,7 +77,7 @@ for list in "$STATE"/*.files; do
       dir="$(dirname "$dir")"
     done
   done < "$list"
-  rm -rf "${APP:?}/extensions/$slug"
+  rm -rf "${APP:?}/extensions/$(namespace_dir "$slug")"
   rm -f "$list"
 done
 
@@ -79,8 +87,8 @@ for slug in "${wanted[@]}"; do
 
   for dir in backend config; do
     if [ -d "$src/$dir" ]; then
-      mkdir -p "$APP/extensions/$slug"
-      cp -a "$src/$dir" "$APP/extensions/$slug/"
+      mkdir -p "$APP/extensions/$(namespace_dir "$slug")"
+      cp -a "$src/$dir" "$APP/extensions/$(namespace_dir "$slug")/"
     fi
   done
 
