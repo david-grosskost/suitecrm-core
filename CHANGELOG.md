@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.19.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.18.0...v0.19.0) (2026-11-12)
+
+
+### Features
+
+* add the opportunity reminders extension ([#66](https://github.com/david-grosskost/suitecrm-core/issues/66)) ([46492d9](https://github.com/david-grosskost/suitecrm-core/commit/46492d9d5e5a2356abfb8939514d0f1196761f8c))
+
 ## [0.18.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.17.0...v0.18.0) (2026-11-12)
 
 
