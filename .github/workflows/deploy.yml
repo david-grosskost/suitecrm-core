@@ -18,7 +18,7 @@ jobs:
     if: github.ref_type == 'tag'
     permissions:
       contents: read
-    uses: david-grosskost/suitecrm-devkit/.github/workflows/deploy.yml@v0.21.1
+    uses: david-grosskost/suitecrm-devkit/.github/workflows/deploy.yml@v0.21.2
     with:
       environment: ${{ inputs.environment }}
       version: ${{ github.ref_name }}
