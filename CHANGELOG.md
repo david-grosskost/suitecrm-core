@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.17.0...v0.18.0) (2026-11-12)
+
+
+### Features
+
+* add the french company validation extension ([#64](https://github.com/david-grosskost/suitecrm-core/issues/64)) ([5d73925](https://github.com/david-grosskost/suitecrm-core/commit/5d73925d59c63442cd65ce6abfa04c38b2ec69c0))
+
 ## [0.17.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.16.0...v0.17.0) (2026-11-12)
 
 
