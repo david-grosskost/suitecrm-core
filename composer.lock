@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e72f0e9b09511a34c53806fd95b0d2a",
+    "content-hash": "d68ec74365b799f7cfc2e4f50da044da",
     "packages": [
         {
             "name": "composer/semver",
@@ -154,36 +154,37 @@
             "time": "2026-11-12T12:11:21+00:00"
         },
         {
-            "name": "david-grosskost/suitecrm-ext-front-customizer",
+            "name": "david-grosskost/suitecrm-ext-french-currency-format",
             "version": "v0.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/david-grosskost/suitecrm-ext-front-customizer",
-                "reference": "fbe138cf1559ce837f0eb444f6fa2097d96443ac"
+                "url": "https://github.com/david-grosskost/suitecrm-ext-french-currency-format",
+                "reference": "8076955c8f92f6c83af1572e0a90e7298be40576"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-front-customizer/zipball/fbe138cf1559ce837f0eb444f6fa2097d96443ac",
-                "reference": "fbe138cf1559ce837f0eb444f6fa2097d96443ac",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-french-currency-format/zipball/8076955c8f92f6c83af1572e0a90e7298be40576",
+                "reference": "8076955c8f92f6c83af1572e0a90e7298be40576",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.4"
             },
             "require-dev": {
-                "david-grosskost/suitecrm-devkit": "^0.22"
+                "david-grosskost/suitecrm-devkit": "^0.24"
             },
             "type": "suitecrm-extension",
             "autoload-dev": {
                 "psr-4": {
-                    "SuiteCrmExt\\FrontCustomizer\\Tests\\": "tests/"
+                    "SuiteCrmExt\\FrenchCurrencyFormat\\": "legacy/include/french-currency-format/",
+                    "SuiteCrmExt\\FrenchCurrencyFormat\\Tests\\": "tests/"
                 }
             },
             "license": [
                 "proprietary"
             ],
-            "description": "Personnalisation de l'interface de SuiteCRM 8 (module Angular) : montants au format français.",
-            "time": "2026-11-12T15:35:46+00:00"
+            "description": "Format monétaire français dans SuiteCRM 8 : symbole après le montant.",
+            "time": "2026-11-12T21:35:07+00:00"
         },
         {
             "name": "david-grosskost/suitecrm-ext-opportunity-reminders",
