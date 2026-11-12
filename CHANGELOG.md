@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.16.0...v0.17.0) (2026-11-12)
+
+
+### Features
+
+* run the install scripts and seeders of the extensions ([#62](https://github.com/david-grosskost/suitecrm-core/issues/62)) ([daf476f](https://github.com/david-grosskost/suitecrm-core/commit/daf476f8cdad3d21e93dea247e1befe5bd19e9be))
+
 ## [0.16.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.15.0...v0.16.0) (2026-11-12)
 
 
