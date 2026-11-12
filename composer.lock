@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b2d0f2b2a8942356965f3e28a2da9e8",
+    "content-hash": "53ac72e9e390fe9c3b4cf48833ca02b4",
     "packages": [
         {
             "name": "composer/semver",
@@ -116,6 +116,42 @@
             ],
             "description": "Champs des entreprises françaises sur les comptes SuiteCRM : SIRET, code NAF, forme juridique.",
             "time": "2026-11-12T10:23:15+00:00"
+        },
+        {
+            "name": "david-grosskost/suitecrm-ext-french-company-validation",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/david-grosskost/suitecrm-ext-french-company-validation",
+                "reference": "aa45632726e20c1b1dce42ac185198af4e565c70"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-french-company-validation/zipball/aa45632726e20c1b1dce42ac185198af4e565c70",
+                "reference": "aa45632726e20c1b1dce42ac185198af4e565c70",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.4"
+            },
+            "require-dev": {
+                "david-grosskost/suitecrm-devkit": "^0.21"
+            },
+            "type": "suitecrm-extension",
+            "autoload-dev": {
+                "classmap": [
+                    "legacy/include/"
+                ],
+                "psr-4": {
+                    "App\\Extension\\FrenchCompanyValidation\\backend\\": "backend/",
+                    "SuiteCrmExt\\FrenchCompanyValidation\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Contrôles des entreprises françaises sur les comptes SuiteCRM : SIRET et code NAF (extension de french-company-fields).",
+            "time": "2026-11-12T12:11:21+00:00"
         },
         {
             "name": "david-grosskost/suitecrm-ext-upstream-fixes",
