@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.16.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.15.0...v0.16.0) (2026-11-12)
+
+
+### Features
+
+* add the french company fields extension ([#59](https://github.com/david-grosskost/suitecrm-core/issues/59)) ([57f53cf](https://github.com/david-grosskost/suitecrm-core/commit/57f53cf38c6d78acb7bb2496c690c1a122e298e4))
+
+
+### Bug Fixes
+
+* **deps:** bump axllent/mailpit ([#57](https://github.com/david-grosskost/suitecrm-core/issues/57)) ([850ea33](https://github.com/david-grosskost/suitecrm-core/commit/850ea33cf37bd491849cbe92d8c822547dfc2764))
+* **deps:** bump david-grosskost/suitecrm-ext-upstream-fixes ([#58](https://github.com/david-grosskost/suitecrm-core/issues/58)) ([37ee7dd](https://github.com/david-grosskost/suitecrm-core/commit/37ee7dd623da1510784d7cc5256afb9000b6ad63))
+
 ## [0.15.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.14.0...v0.15.0) (2026-11-08)
 
 
