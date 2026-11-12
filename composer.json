@@ -22,7 +22,7 @@
     ],
     "require": {
         "composer/semver": "^3.4",
-        "david-grosskost/suitecrm-ext-french-company-fields": "^0.1",
+        "david-grosskost/suitecrm-ext-french-company-fields": "^0.2",
         "david-grosskost/suitecrm-ext-upstream-fixes": "^0.2",
         "fakerphp/faker": "^1.24"
     },

@@ -54,7 +54,7 @@ try {
     foreach ($seeders as $seeder) {
         $before = $seed->saved();
         $seeder->run($seed);
-        printf("  %-28s %d enregistrement(s)\n", $seeder->name(), $seed->saved() - $before);
+        printf("  %-34s %d enregistrement(s)\n", $seeder->name(), $seed->saved() - $before);
     }
     printf("  Données de démo : %d enregistrement(s) écrits.\n", $seed->saved());
 } catch (RuntimeException $exception) {
