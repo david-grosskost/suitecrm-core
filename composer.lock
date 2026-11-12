@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1bbffaadd499272267bf869280b53ef",
+    "content-hash": "3e72f0e9b09511a34c53806fd95b0d2a",
     "packages": [
         {
             "name": "composer/semver",
@@ -187,23 +187,23 @@
         },
         {
             "name": "david-grosskost/suitecrm-ext-opportunity-reminders",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/david-grosskost/suitecrm-ext-opportunity-reminders",
-                "reference": "590cd5804bca8639006072386fb6de8ee368fccd"
+                "reference": "c6f950ddc6d76783d82743995c2c9b2baf2e66d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-opportunity-reminders/zipball/590cd5804bca8639006072386fb6de8ee368fccd",
-                "reference": "590cd5804bca8639006072386fb6de8ee368fccd",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-opportunity-reminders/zipball/c6f950ddc6d76783d82743995c2c9b2baf2e66d6",
+                "reference": "c6f950ddc6d76783d82743995c2c9b2baf2e66d6",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.4"
             },
             "require-dev": {
-                "david-grosskost/suitecrm-devkit": "^0.21.3"
+                "david-grosskost/suitecrm-devkit": "^0.23"
             },
             "type": "suitecrm-extension",
             "autoload-dev": {
@@ -217,7 +217,7 @@
                 "proprietary"
             ],
             "description": "Relances des opportunités SuiteCRM : une tâche pour le commercial quand une opportunité ouverte n'a pas bougé depuis un nombre de jours réglable.",
-            "time": "2026-11-12T13:52:30+00:00"
+            "time": "2026-11-12T20:39:53+00:00"
         },
         {
             "name": "david-grosskost/suitecrm-ext-upstream-fixes",
@@ -651,16 +651,16 @@
         },
         {
             "name": "david-grosskost/suitecrm-devkit",
-            "version": "v0.21.2",
+            "version": "v0.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/david-grosskost/suitecrm-devkit",
-                "reference": "c1a00666f89a8940dac8779a0505409f7e04056f"
+                "reference": "595b286d9947fde43abaaee15db602d6a5777ff8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/c1a00666f89a8940dac8779a0505409f7e04056f",
-                "reference": "c1a00666f89a8940dac8779a0505409f7e04056f",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/595b286d9947fde43abaaee15db602d6a5777ff8",
+                "reference": "595b286d9947fde43abaaee15db602d6a5777ff8",
                 "shasum": ""
             },
             "require": {
@@ -673,7 +673,7 @@
                 "proprietary"
             ],
             "description": "Shared tooling of the SuiteCRM projects: make commands, Git hooks, quality configs, CI workflows.",
-            "time": "2026-11-12T09:00:41+00:00"
+            "time": "2026-11-12T19:33:09+00:00"
         },
         {
             "name": "ergebnis/agent-detector",
