@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "53ac72e9e390fe9c3b4cf48833ca02b4",
+    "content-hash": "1023c05d58838c2be9c9e5bc1993b650",
     "packages": [
         {
             "name": "composer/semver",
@@ -152,6 +152,40 @@
             ],
             "description": "Contrôles des entreprises françaises sur les comptes SuiteCRM : SIRET et code NAF (extension de french-company-fields).",
             "time": "2026-11-12T12:11:21+00:00"
+        },
+        {
+            "name": "david-grosskost/suitecrm-ext-opportunity-reminders",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/david-grosskost/suitecrm-ext-opportunity-reminders",
+                "reference": "590cd5804bca8639006072386fb6de8ee368fccd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-opportunity-reminders/zipball/590cd5804bca8639006072386fb6de8ee368fccd",
+                "reference": "590cd5804bca8639006072386fb6de8ee368fccd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.4"
+            },
+            "require-dev": {
+                "david-grosskost/suitecrm-devkit": "^0.21.3"
+            },
+            "type": "suitecrm-extension",
+            "autoload-dev": {
+                "psr-4": {
+                    "SuiteCrmExt\\OpportunityReminders\\": "legacy/include/opportunity-reminders/",
+                    "SuiteCrmExt\\OpportunityReminders\\Seed\\": "database/seeders/opportunity-reminders/",
+                    "SuiteCrmExt\\OpportunityReminders\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Relances des opportunités SuiteCRM : une tâche pour le commercial quand une opportunité ouverte n'a pas bougé depuis un nombre de jours réglable.",
+            "time": "2026-11-12T13:52:30+00:00"
         },
         {
             "name": "david-grosskost/suitecrm-ext-upstream-fixes",
