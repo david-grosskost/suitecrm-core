@@ -15,7 +15,14 @@
 #   fails;
 # - when the set changes (another list, or another version of an extension):
 #   Quick Repair (scripts/repair.php, once SuiteCRM is installed), and the
-#   SuiteCRM 8 cache is cleared.
+#   SuiteCRM 8 cache is cleared;
+# - install and uninstall scripts (database/install.php, database/uninstall.php,
+#   run by scripts/extension-script.php once SuiteCRM is installed): uninstall
+#   for an extension no longer listed, before its files are taken out; install
+#   once for a listed one, after Quick Repair (.extensions/<slug>.installed
+#   once done, removed by its uninstall). The extension is kept in
+#   .extensions/<slug>.extension/ at activation: its uninstall script (and the
+#   classes it uses) are still there once the image no longer has it.
 #
 # Run as root by suitecrm-entrypoint at each start, before the cron container
 # starts. Unchanged extensions: nothing is written. An unknown slug stops the
@@ -63,6 +70,21 @@ fi
 echo "suitecrm-extensions : activation (${wanted[*]:-aucune extension})"
 
 mkdir -p "$STATE"
+installed=false
+[ -f "$APP/public/legacy/config.php" ] && installed=true
+
+# 0. Uninstall scripts of the extensions no longer listed, while SuiteCRM still
+#    has their files (and so their fields).
+removed=()
+if [ -f "$STATE/active" ]; then
+  mapfile -t removed < <(comm -23 <(sort -u "$STATE/active") <(printf '%s\n' "${wanted[@]}" | grep -v '^$' | sort -u))
+fi
+if $installed && [ "${#removed[@]}" -gt 0 ]; then
+  runuser -u www-data -- php /usr/local/share/suitecrm/extension-script.php uninstall "${removed[@]}"
+fi
+for slug in "${removed[@]}"; do
+  rm -rf "${STATE:?}/$slug.extension" "${STATE:?}/$slug.installed"
+done
 
 # 1. Take out every extension of the previous start: files listed, then the
 #    SuiteCRM 8 directory. Those still wanted come back just below.
@@ -103,6 +125,8 @@ for slug in "${wanted[@]}"; do
       || die "public/legacy/custom/$file existe déjà (fichier du projet ou d'une autre extension) : « $slug » ne l'écrase pas"
   done
   printf '%s\n' "${files[@]}" | grep -v '^$' > "$STATE/$slug.files" || true
+  rm -rf "${STATE:?}/$slug.extension"
+  [ -d "$src/database" ] && cp -a "$src" "$STATE/$slug.extension"
   for file in "${files[@]}"; do
     mkdir -p "$(dirname "$LEGACY/$file")"
     cp -a "$src/legacy/$file" "$LEGACY/$file"
@@ -112,10 +136,14 @@ done
 chown -R www-data:www-data "$APP/extensions" "$STATE"
 [ -d "$LEGACY" ] && chown -R www-data:www-data "$LEGACY"
 
-# 3. SuiteCRM takes them into account: Quick Repair (installed only: at a
-#    first install, suitecrm-install runs it), then the SuiteCRM 8 cache.
-if [ -f "$APP/public/legacy/config.php" ]; then
+# 3. SuiteCRM takes them into account: Quick Repair, then their install
+#    scripts (installed only: at a first install, suitecrm-install runs both),
+#    then the SuiteCRM 8 cache.
+if $installed; then
   runuser -u www-data -- php /usr/local/share/suitecrm/repair.php
+  if [ "${#wanted[@]}" -gt 0 ]; then
+    runuser -u www-data -- php /usr/local/share/suitecrm/extension-script.php install "${wanted[@]}"
+  fi
 fi
 rm -rf "$APP/cache/prod"
 

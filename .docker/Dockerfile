@@ -105,9 +105,9 @@ COPY scripts/mail.php /usr/local/share/suitecrm/mail.php
 COPY database/ /usr/local/share/suitecrm/database/
 COPY --from=vendor /app/vendor /usr/local/share/suitecrm/database/vendor
 # Extensions of the image and their activation (EXTENSIONS, at each start),
-# with the Quick Repair they need.
+# with the Quick Repair they need and their install/uninstall scripts.
 COPY --from=vendor /app/catalog/ /usr/local/share/suitecrm/extensions/
-COPY scripts/repair.php /usr/local/share/suitecrm/repair.php
+COPY scripts/repair.php scripts/extension-script.php /usr/local/share/suitecrm/
 
 COPY .docker/apache/suitecrm.conf /etc/apache2/sites-available/000-default.conf
 COPY .docker/php/suitecrm.ini /usr/local/etc/php/conf.d/suitecrm.ini

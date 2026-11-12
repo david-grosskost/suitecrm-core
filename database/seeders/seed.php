@@ -1,8 +1,9 @@
 <?php
 
 // Loads the French demo data into the instance: every seeder of every
-// package (<package>/seeders.php), dependencies first. Safe to run again:
-// records are updated, never duplicated (see database/README.md).
+// package (<package>/seeders.php), those of the core and those of the active
+// extensions (database/seeders/ of each), dependencies first. Safe to run
+// again: records are updated, never duplicated (see database/README.md).
 // Runs inside the app container, as www-data, once SuiteCRM is installed.
 //
 // @usage php /usr/local/share/suitecrm/database/seeders/seed.php [<seeder> ...]
@@ -43,7 +44,12 @@ if (!$current_user instanceof User || empty($current_user->id)) {
 $only = array_slice($argv, 1);
 
 try {
-    $seeders = Runner::order(Runner::discover($seedersDir), $only);
+    // The active extensions (suitecrm-extensions), from the catalogue of the image.
+    $directories = [$seedersDir];
+    foreach (@file('/var/www/html/.extensions/active', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [] as $slug) {
+        $directories[] = "/usr/local/share/suitecrm/extensions/{$slug}/database/seeders";
+    }
+    $seeders = Runner::order(Runner::discover($directories), $only);
     $seed = new SeedContext();
     foreach ($seeders as $seeder) {
         $before = $seed->saved();

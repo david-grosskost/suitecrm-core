@@ -41,7 +41,9 @@ if [ -n "${MAIL_SMTP_HOST:-}" ]; then
 fi
 
 # Extensions activated by the entrypoint before the install: Quick Repair
-# merges them, and creates the fields they add.
+# merges them, and creates the fields they add; then their install scripts.
 if [ -s .extensions/active ]; then
   php /usr/local/share/suitecrm/repair.php
+  mapfile -t active < .extensions/active
+  php /usr/local/share/suitecrm/extension-script.php install "${active[@]}"
 fi

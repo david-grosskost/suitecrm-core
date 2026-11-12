@@ -11,15 +11,22 @@ namespace SuiteCrmCore\Seed;
 final class Runner
 {
     /**
-     * Seeders declared by every package: each <package>/seeders.php under
-     * $directory returns a list of Seeder.
+     * Seeders declared by every package: each <package>/seeders.php under one
+     * of the $directories returns a list of Seeder.
+     *
+     * @param list<string> $directories
      *
      * @return array<string, Seeder> By name
      */
-    public static function discover(string $directory): array
+    public static function discover(array $directories): array
     {
+        $files = [];
+        foreach ($directories as $directory) {
+            array_push($files, ...(glob($directory . '/*/seeders.php') ?: []));
+        }
+
         $seeders = [];
-        foreach (glob($directory . '/*/seeders.php') ?: [] as $file) {
+        foreach ($files as $file) {
             $declared = require $file;
             if (!is_array($declared)) {
                 throw new \RuntimeException("seed : {$file} doit renvoyer une liste de seeders");
