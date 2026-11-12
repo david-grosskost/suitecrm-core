@@ -8,6 +8,12 @@
 #   PascalCase (french-company-fields → FrenchCompanyFields), which Symfony
 #   loads by itself: PHP classes there are App\Extension\<Name>\backend\…, and
 #   a hyphen is not allowed in a namespace;
+# - front (SuiteCRM 8 Angular): public/ goes to extensions/<Name>/public/ too.
+#   It is the extension's Angular module, already built (module federation),
+#   that config/extension.php declares (remoteEntry, enabled); SuiteCRM copies
+#   it to public/extensions/<Name>/ when it rebuilds its cache, which the
+#   activation clears. A turned-off extension leaves extensions/, then
+#   public/extensions/ at that rebuild;
 # - legacy layer: legacy/… goes to public/legacy/custom/…, file by file; the
 #   files written are listed in .extensions/<slug>.files, so that an extension
 #   that is turned off or changed leaves nothing behind. A file already there
@@ -107,7 +113,7 @@ done
 for slug in "${wanted[@]}"; do
   src="$CATALOG/$slug"
 
-  for dir in backend config; do
+  for dir in backend config public; do
     if [ -d "$src/$dir" ]; then
       mkdir -p "$APP/extensions/$(namespace_dir "$slug")"
       cp -a "$src/$dir" "$APP/extensions/$(namespace_dir "$slug")/"
