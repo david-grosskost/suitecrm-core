@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.21.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.20.0...v0.21.0) (2026-11-12)
+
+
+### Features
+
+* replace front-customizer with french-currency-format ([#72](https://github.com/david-grosskost/suitecrm-core/issues/72)) ([c24c32b](https://github.com/david-grosskost/suitecrm-core/commit/c24c32be038e7bb909122e3f55dd5caf6fac5200))
+
 ## [0.20.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.19.0...v0.20.0) (2026-11-12)
 
 
