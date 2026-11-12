@@ -3,7 +3,7 @@
 // Builds the catalogue of extensions of the image, at build time (Dockerfile,
 // "vendor" stage): every Composer package of type suitecrm-extension that
 // composer.json requires, checked and copied to catalog/<slug>/ (its
-// extension.json, backend/, config/, legacy/, database/). The entrypoint
+// extension.json, backend/, config/, public/, legacy/, database/). The entrypoint
 // activates those listed in EXTENSIONS (scripts/extensions.sh).
 // Fails the build when an extension is broken or does not declare the
 // SuiteCRM version of the image (decision D8).
@@ -88,7 +88,7 @@ foreach ($packages as $package) {
         "$catalog/$slug/extension.json",
         json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR) . "\n",
     );
-    foreach (['backend', 'config', 'legacy', 'database'] as $part) {
+    foreach (['backend', 'config', 'public', 'legacy', 'database'] as $part) {
         if (is_dir("$dir/$part")) {
             copyTree("$dir/$part", "$catalog/$slug/$part");
         }
