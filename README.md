@@ -69,6 +69,14 @@ sont des paquets Composer de type `suitecrm-extension`.
   liste ou leur contenu change.
 - Une extension n'écrase jamais un fichier de `public/legacy/custom/` qui ne
   vient pas d'elle : le démarrage s'arrête avec le nom du fichier.
+- **Scripts d'installation** : `database/install.php` d'une extension est lancé
+  une fois, après la réparation rapide de sa première activation ;
+  `database/uninstall.php`, quand elle n'est plus listée, avant que ses fichiers
+  soient retirés (réactivée, elle s'installe de nouveau). Ils tournent dans SuiteCRM, en
+  administrateur (`scripts/extension-script.php`), par exemple pour écrire un
+  panneau dans une mise en page de Studio, puis le retirer.
+- **Données de démo** : `make db@seed` charge aussi les seeders des extensions
+  actives (`database/seeders/<slug>/`, voir [database/README.md](database/README.md)).
 
 Ajouter une extension au catalogue :
 

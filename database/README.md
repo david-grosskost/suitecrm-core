@@ -85,5 +85,12 @@ Les champs s'écrivent au format de la base : dates `AAAA-MM-JJ` (`Fr::date(30)`
 
 Chaque paquet a son dossier dans `database/seeders/`, avec un `seeders.php` qui renvoie la liste
 de ses seeders : `database/seeders/core/seeders.php` en est l'exemple. Le lanceur (`seed.php`) les découvre
-tous, puis les ordonne selon leurs dépendances. Une extension pourra ainsi ajouter, par
-exemple, le SIRET et la forme juridique aux comptes de `core/accounts`.
+tous, puis les ordonne selon leurs dépendances.
+
+Une extension fait de même dans **son** dépôt : `database/seeders/<slug>/seeders.php`. Le
+lanceur prend les seeders des extensions **actives** de l'instance (`EXTENSIONS`), en plus de
+ceux du core. Pour compléter les enregistrements d'un autre seeder (ex. les champs d'une
+extension sur les comptes), le seeder le déclare dans `dependsOn()` et écrit avec
+`$seed->update($bean, $champs)`. Exemple :
+[suitecrm-ext-french-company-fields](https://github.com/david-grosskost/suitecrm-ext-french-company-fields)
+(`french-company-fields/accounts` : SIRET, code NAF et forme juridique des comptes).

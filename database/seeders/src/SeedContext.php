@@ -93,6 +93,22 @@ final class SeedContext
         return $id;
     }
 
+    /**
+     * Updates fields of a record that is already there, whoever wrote it (a
+     * seeder that completes the records of another, e.g. an extension's
+     * fields on the accounts). Same formats as upsert().
+     *
+     * @param array<string, string|int|null> $fields
+     */
+    public function update(\SugarBean $bean, array $fields): void
+    {
+        foreach ($fields as $field => $value) {
+            $bean->{$field} = $value;
+        }
+        $bean->save();
+        ++$this->saved;
+    }
+
     /** Records written since the start of the run. */
     public function saved(): int
     {

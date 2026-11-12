@@ -28,3 +28,6 @@ parameters:
         -
             identifier: requireOnce.fileNotFound
             path: scripts/repair.php
+        -
+            identifier: requireOnce.fileNotFound
+            path: scripts/extension-script.php
