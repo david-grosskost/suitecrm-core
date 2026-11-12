@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.20.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.19.0...v0.20.0) (2026-11-12)
+
+
+### Features
+
+* add the front customizer extension ([#70](https://github.com/david-grosskost/suitecrm-core/issues/70)) ([e71d2a2](https://github.com/david-grosskost/suitecrm-core/commit/e71d2a2ea3f3014c4f51ab4f1c0f9cf1e14eb7a9))
+* install the angular module of an extension ([#68](https://github.com/david-grosskost/suitecrm-core/issues/68)) ([7c3fb43](https://github.com/david-grosskost/suitecrm-core/commit/7c3fb432294c5a4a2b7d80e4bdab96e155c23194))
+
 ## [0.19.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.18.0...v0.19.0) (2026-11-12)
 
 
