@@ -41,3 +41,4 @@ copier (ou fusionner) ici, au même chemin.
 - Vouvoiement, typographie française : espace avant `:`, `?`, `!`, `;`.
 - Garder tels quels les `%s`, `{0}`, balises HTML et noms de variables.
 - Les apostrophes s'échappent dans les chaînes PHP : `'l\'opportunité'`.
+- Libellé repris dans du JavaScript (grilles du Module Loader…) : apostrophe typographique `’`, SuiteCRM l'y insère sans l'échapper.
