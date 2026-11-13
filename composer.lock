@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d68ec74365b799f7cfc2e4f50da044da",
+    "content-hash": "087052f11bdb58ee6ba01f44ad2d23c8",
     "packages": [
         {
             "name": "composer/semver",
@@ -185,6 +185,39 @@
             ],
             "description": "Format monétaire français dans SuiteCRM 8 : symbole après le montant.",
             "time": "2026-11-12T21:35:07+00:00"
+        },
+        {
+            "name": "david-grosskost/suitecrm-ext-login-background",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/david-grosskost/suitecrm-ext-login-background",
+                "reference": "841047be30067d43219fb9188754b7a5f9acbd02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-login-background/zipball/841047be30067d43219fb9188754b7a5f9acbd02",
+                "reference": "841047be30067d43219fb9188754b7a5f9acbd02",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.4"
+            },
+            "require-dev": {
+                "david-grosskost/suitecrm-devkit": "^0.24"
+            },
+            "type": "suitecrm-extension",
+            "autoload-dev": {
+                "psr-4": {
+                    "SuiteCrmExt\\LoginBackground\\": "legacy/include/login-background/",
+                    "SuiteCrmExt\\LoginBackground\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Image de fond de la page de connexion de SuiteCRM 8, choisie dans l'administration.",
+            "time": "2026-11-13T15:06:53+00:00"
         },
         {
             "name": "david-grosskost/suitecrm-ext-opportunity-reminders",
