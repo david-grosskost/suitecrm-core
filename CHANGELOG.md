@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.22.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.21.0...v0.22.0) (2026-11-13)
+
+
+### Features
+
+* add the login background extension ([#74](https://github.com/david-grosskost/suitecrm-core/issues/74)) ([e7f232a](https://github.com/david-grosskost/suitecrm-core/commit/e7f232ac8b45af8badee8ebfed9f58c0f627c0bd))
+
 ## [0.21.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.20.0...v0.21.0) (2026-11-12)
 
 
