@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.22.2](https://github.com/david-grosskost/suitecrm-core/compare/v0.22.1...v0.22.2) (2026-11-13)
+
+
+### Bug Fixes
+
+* show the message an extension script returns ([#78](https://github.com/david-grosskost/suitecrm-core/issues/78)) ([c968e12](https://github.com/david-grosskost/suitecrm-core/commit/c968e121d7fcab804e4332f9aff312e120f66898))
+
 ## [0.22.1](https://github.com/david-grosskost/suitecrm-core/compare/v0.22.0...v0.22.1) (2026-11-13)
 
 
