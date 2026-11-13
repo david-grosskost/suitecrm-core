@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.22.1](https://github.com/david-grosskost/suitecrm-core/compare/v0.22.0...v0.22.1) (2026-11-13)
+
+
+### Bug Fixes
+
+* **lang:** unbreak the Module Loader package lists in French ([#76](https://github.com/david-grosskost/suitecrm-core/issues/76)) ([4e999b3](https://github.com/david-grosskost/suitecrm-core/commit/4e999b3f2b2a27138aa302db40ee482dc14682d8))
+
 ## [0.22.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.21.0...v0.22.0) (2026-11-13)
 
 
