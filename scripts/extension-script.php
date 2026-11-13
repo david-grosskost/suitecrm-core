@@ -66,10 +66,15 @@ if (!$current_user instanceof User || empty($current_user->id)) {
 
 foreach ($scripts as $slug => $file) {
     try {
-        // Own scope: the script sees only what it declares global.
-        (static function (string $file): void {
-            require $file;
+        // Own scope: the script sees only what it declares global. It returns
+        // its message rather than printing it (echo is refused by the scanner
+        // of the Module Loader, where the same script runs too).
+        $message = (static function (string $file): mixed {
+            return require $file;
         })($file);
+        if (is_string($message) && $message !== '') {
+            echo "  {$message}\n";
+        }
     } catch (Throwable $exception) {
         fwrite(STDERR, "  {$slug} : script {$action} en échec : {$exception->getMessage()}\n");
         exit(1);
