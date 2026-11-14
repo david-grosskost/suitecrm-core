@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0acf23c611b423afe6ba6910e09a7163",
+    "content-hash": "5331b2a599f19a7857ad805ae7c74ca2",
     "packages": [
         {
             "name": "composer/semver",
@@ -253,6 +253,39 @@
             ],
             "description": "Relances des opportunités SuiteCRM : une tâche pour le commercial quand une opportunité ouverte n'a pas bougé depuis un nombre de jours réglable.",
             "time": "2026-11-14T08:24:35+00:00"
+        },
+        {
+            "name": "david-grosskost/suitecrm-ext-pwa",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/david-grosskost/suitecrm-ext-pwa",
+                "reference": "894c907622db97b3a760711c5860ceaaaa0ccc82"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-pwa/zipball/894c907622db97b3a760711c5860ceaaaa0ccc82",
+                "reference": "894c907622db97b3a760711c5860ceaaaa0ccc82",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.4"
+            },
+            "require-dev": {
+                "david-grosskost/suitecrm-devkit": "^0.26"
+            },
+            "type": "suitecrm-extension",
+            "autoload-dev": {
+                "psr-4": {
+                    "SuiteCrmExt\\Pwa\\": "legacy/include/pwa/",
+                    "SuiteCrmExt\\Pwa\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Le CRM s'installe comme une application (PWA) sur téléphone et sur ordinateur, avec son nom et son icône.",
+            "time": "2026-11-14T21:35:46+00:00"
         },
         {
             "name": "david-grosskost/suitecrm-ext-upstream-fixes",
