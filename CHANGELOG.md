@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.24.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.23.0...v0.24.0) (2026-11-14)
+
+
+### Features
+
+* add the pwa extension to the catalog ([#83](https://github.com/david-grosskost/suitecrm-core/issues/83)) ([ce4da30](https://github.com/david-grosskost/suitecrm-core/commit/ce4da30325c22da6dc69b57bf2af4734e18a0eb2))
+
 ## [0.23.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.22.2...v0.23.0) (2026-11-14)
 
 
