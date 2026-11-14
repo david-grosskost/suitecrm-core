@@ -69,6 +69,12 @@ sont des paquets Composer de type `suitecrm-extension`.
   liste ou leur contenu change.
 - Une extension n'écrase jamais un fichier de `public/legacy/custom/` qui ne
   vient pas d'elle : le démarrage s'arrête avec le nom du fichier.
+- **Chargeur de module ou `EXTENSIONS`, jamais les deux** : chaque extension
+  publie aussi un paquet pour le Chargeur de module de SuiteCRM (joint à ses
+  releases GitHub). Une extension installée par ce Chargeur a ses fichiers dans
+  `custom/` : listée en plus dans `EXTENSIONS`, elle bloque le démarrage (règle
+  ci-dessus). La désinstaller d'abord (Administration → Chargeur de module),
+  puis l'ajouter à `EXTENSIONS`.
 - **Front (Angular)** : le module Angular déjà compilé d'une extension
   (`public/`, déclaré par son `config/extension.php`) va dans
   `extensions/<Nom>/public/` ; SuiteCRM le recopie dans `public/extensions/<Nom>/`
