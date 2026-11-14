@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.23.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.22.2...v0.23.0) (2026-11-14)
+
+
+### Features
+
+* extensions that pass the Module Loader scanner ([#80](https://github.com/david-grosskost/suitecrm-core/issues/80)) ([a3add8a](https://github.com/david-grosskost/suitecrm-core/commit/a3add8a6781d83423144ecd608857addd9a4b012))
+
 ## [0.22.2](https://github.com/david-grosskost/suitecrm-core/compare/v0.22.1...v0.22.2) (2026-11-13)
 
 
