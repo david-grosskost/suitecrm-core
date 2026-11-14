@@ -45,7 +45,7 @@
         "david-grosskost/suitecrm-ext-french-company-fields": "^0.2",
         "david-grosskost/suitecrm-ext-french-company-validation": "^0.1",
         "david-grosskost/suitecrm-ext-french-currency-format": "^0.1",
-        "david-grosskost/suitecrm-ext-login-background": "^0.1",
+        "david-grosskost/suitecrm-ext-login-background": "^0.2",
         "david-grosskost/suitecrm-ext-opportunity-reminders": "^0.1",
         "david-grosskost/suitecrm-ext-upstream-fixes": "^0.2",
         "fakerphp/faker": "^1.24"
