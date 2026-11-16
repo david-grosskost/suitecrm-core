@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5331b2a599f19a7857ad805ae7c74ca2",
+    "content-hash": "a0a2736dddbb8ec7d0caf5359f7716c1",
     "packages": [
         {
             "name": "composer/semver",
@@ -86,16 +86,16 @@
         },
         {
             "name": "david-grosskost/suitecrm-ext-french-company-fields",
-            "version": "v0.2.1",
+            "version": "v0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/david-grosskost/suitecrm-ext-french-company-fields",
-                "reference": "b45d7631f8c6aeac34f0f4dd088821b36b74abdc"
+                "reference": "aebd129bc8ed2ee3900a47f7609f32b24bc45d0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-french-company-fields/zipball/b45d7631f8c6aeac34f0f4dd088821b36b74abdc",
-                "reference": "b45d7631f8c6aeac34f0f4dd088821b36b74abdc",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-french-company-fields/zipball/aebd129bc8ed2ee3900a47f7609f32b24bc45d0c",
+                "reference": "aebd129bc8ed2ee3900a47f7609f32b24bc45d0c",
                 "shasum": ""
             },
             "require": {
@@ -116,7 +116,7 @@
                 "proprietary"
             ],
             "description": "Champs des entreprises françaises sur les comptes SuiteCRM : SIRET, code NAF, forme juridique.",
-            "time": "2026-11-13T22:01:59+00:00"
+            "time": "2026-11-14T09:57:06+00:00"
         },
         {
             "name": "david-grosskost/suitecrm-ext-french-company-validation",
@@ -289,23 +289,23 @@
         },
         {
             "name": "david-grosskost/suitecrm-ext-upstream-fixes",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/david-grosskost/suitecrm-ext-upstream-fixes",
-                "reference": "e79b598d55f4f4df2d8328eafc9fe6f73e22c4de"
+                "reference": "5563bacf0e1bd7a2d4a0c88e49d114c62ccb9fca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-upstream-fixes/zipball/e79b598d55f4f4df2d8328eafc9fe6f73e22c4de",
-                "reference": "e79b598d55f4f4df2d8328eafc9fe6f73e22c4de",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-upstream-fixes/zipball/5563bacf0e1bd7a2d4a0c88e49d114c62ccb9fca",
+                "reference": "5563bacf0e1bd7a2d4a0c88e49d114c62ccb9fca",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.4"
             },
             "require-dev": {
-                "david-grosskost/suitecrm-devkit": "^0.19"
+                "david-grosskost/suitecrm-devkit": "^0.26"
             },
             "type": "suitecrm-extension",
             "autoload-dev": {
@@ -320,7 +320,7 @@
                 "proprietary"
             ],
             "description": "Correctifs de bugs de SuiteCRM, en attendant leur correction dans SuiteCRM.",
-            "time": "2026-11-08T21:04:25+00:00"
+            "time": "2026-11-16T20:28:10+00:00"
         },
         {
             "name": "fakerphp/faker",
@@ -725,20 +725,21 @@
         },
         {
             "name": "david-grosskost/suitecrm-devkit",
-            "version": "v0.23.0",
+            "version": "v0.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/david-grosskost/suitecrm-devkit",
-                "reference": "595b286d9947fde43abaaee15db602d6a5777ff8"
+                "reference": "e488c7c1ff97e528ffc94784b05cfcc3fef10630"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/595b286d9947fde43abaaee15db602d6a5777ff8",
-                "reference": "595b286d9947fde43abaaee15db602d6a5777ff8",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/e488c7c1ff97e528ffc94784b05cfcc3fef10630",
+                "reference": "e488c7c1ff97e528ffc94784b05cfcc3fef10630",
                 "shasum": ""
             },
             "require": {
                 "friendsofphp/php-cs-fixer": "^3.64",
+                "nikic/php-parser": "^5.4",
                 "phpstan/phpstan": "^2.1",
                 "phpunit/phpunit": "^13.4"
             },
@@ -747,7 +748,7 @@
                 "proprietary"
             ],
             "description": "Shared tooling of the SuiteCRM projects: make commands, Git hooks, quality configs, CI workflows.",
-            "time": "2026-11-12T19:33:09+00:00"
+            "time": "2026-11-14T10:24:25+00:00"
         },
         {
             "name": "ergebnis/agent-detector",
