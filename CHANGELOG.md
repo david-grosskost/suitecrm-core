@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.25.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.24.1...v0.25.0) (2026-11-16)
+
+
+### Features
+
+* manage the extensions through the Module Loader ([#87](https://github.com/david-grosskost/suitecrm-core/issues/87)) ([7f9e01d](https://github.com/david-grosskost/suitecrm-core/commit/7f9e01d09c875e39c2b659e5b9698b03d20caa60))
+
 ## [0.24.1](https://github.com/david-grosskost/suitecrm-core/compare/v0.24.0...v0.24.1) (2026-11-16)
 
 
