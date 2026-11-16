@@ -56,6 +56,13 @@
         "david-grosskost/suitecrm-ext-upstream-fixes": "^0.2",
         "fakerphp/faker": "^1.24"
     },
+    "extra": {
+        "suitecrm": {
+            "required-extensions": [
+                "upstream-fixes"
+            ]
+        }
+    },
     "require-dev": {
         "david-grosskost/suitecrm-devkit": "^0.26"
     },

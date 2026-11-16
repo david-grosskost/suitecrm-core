@@ -106,6 +106,17 @@ abstract class DBManager
     public function getAffectedRowCount($result): int
     {
     }
+
+    /**
+     * The next row of a result, by column name, or false at the end.
+     *
+     * @param mixed $result
+     *
+     * @return array<string, string>|false
+     */
+    public function fetchByAssoc($result, bool $encode = true)
+    {
+    }
 }
 
 class DBManagerFactory
@@ -159,4 +170,45 @@ class RepairAndClear
     public function repairAndClearAll(array $selected_actions, array $modules, bool $autoexecute = false, bool $show_output = true, string $metadata_sections = ''): void
     {
     }
+}
+
+/** Installs and uninstalls a Module Loader package (ModuleInstall/ModuleInstaller.php). */
+class ModuleInstaller
+{
+    public bool $silent = false;
+
+    public function install(string $base_dir, bool $is_upgrade = false, string $previous_version = ''): void
+    {
+    }
+
+    public function uninstall(string $base_dir): void
+    {
+    }
+}
+
+/** A package installed by the Module Loader (modules/Administration/UpgradeHistory.php). */
+class UpgradeHistory extends SugarBean
+{
+    public string $filename = '';
+    public string $md5sum = '';
+    public string $type = '';
+    public string $version = '';
+    public string $status = '';
+    public string $name = '';
+    public string $description = '';
+    public string $id_name = '';
+    public string $manifest = '';
+}
+
+/**
+ * Creates a temporary directory under the given one, and gives its path
+ * (include/utils/file_utils.php).
+ */
+function mk_temp_dir(string $base_dir, string $prefix = ''): string|false
+{
+}
+
+/** Unpacks a zip into a directory (include/utils/php_zip_utils.php). */
+function unzip(string $zip_archive, string $zip_dir): bool
+{
 }

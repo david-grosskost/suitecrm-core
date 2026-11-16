@@ -44,10 +44,16 @@ if (!$current_user instanceof User || empty($current_user->id)) {
 $only = array_slice($argv, 1);
 
 try {
-    // The active extensions (suitecrm-extensions), from the catalogue of the image.
+    // The extensions this instance has installed (Chargeur de module), with
+    // the demo data the image carries for them (scripts/extensions-catalog.php).
     $directories = [$seedersDir];
-    foreach (@file('/var/www/html/.extensions/active', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [] as $slug) {
-        $directories[] = "/usr/local/share/suitecrm/extensions/{$slug}/database/seeders";
+    $db = DBManagerFactory::getInstance();
+    $result = $db->query('SELECT id_name FROM upgrade_history');
+    while (is_array($row = $db->fetchByAssoc($result, false))) {
+        $slug = is_string($row['id_name'] ?? null) ? $row['id_name'] : '';
+        if ($slug !== '' && is_dir("/usr/local/share/suitecrm/extensions/seeders/{$slug}")) {
+            $directories[] = "/usr/local/share/suitecrm/extensions/seeders/{$slug}";
+        }
     }
     $seeders = Runner::order(Runner::discover($directories), $only);
     $seed = new SeedContext();

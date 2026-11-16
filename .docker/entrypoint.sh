@@ -55,9 +55,15 @@ if [ "$image_version" != "$app_version" ]; then
   cp -p "$SRC/.image-version" "$APP/.image-version"
 fi
 
-# Extensions chosen for this instance (EXTENSIONS, see compose.yaml), from
-# those of the image: only does something when the list or the image changes.
-suitecrm-extensions
+# Instances created before core 0.25: their extensions move to the Module
+# Loader, once.
+suitecrm-migrate-extensions
+
+# Extensions of the image: their packages go in the list of available packages
+# of Administration → Chargeur de module, and those this instance has
+# installed are updated when the image brings a newer version. Nothing is
+# installed or uninstalled on its own.
+runuser -u www-data -- php /usr/local/share/suitecrm/packages.php sync
 
 # Local and demo: every email goes to Mailpit, set again at each start so that
 # a change in the admin screens never lets a demo send real emails. Once
