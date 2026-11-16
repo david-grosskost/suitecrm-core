@@ -8,21 +8,25 @@ ARG SUITECRM_VERSION=8.10.2
 # Tool stage: only its install-php-extensions script is copied below.
 FROM mlocati/php-extension-installer:2 AS php-extension-installer
 
-# Production dependencies of composer.json only (never the devkit). Listed in
-# composer.lock, so composer audit checks them too:
+# Dependencies of composer.json. Listed in composer.lock, so composer audit
+# checks them too:
 # - Faker, for the generated demo data (database/factories), copied below
 #   into database/vendor;
 # - the extensions (Composer type suitecrm-extension), checked against the
-#   SuiteCRM version of the image and gathered into catalog/ (see
-#   scripts/extensions-catalog.php), copied below; EXTENSIONS chooses those
-#   each instance runs (scripts/extensions.sh).
+#   SuiteCRM version of the image and built into Module Loader packages
+#   gathered in catalog/ (see scripts/extensions-catalog.php), copied below.
+#
+# The packages are built by the devkit, a development dependency: it is
+# installed for that step only, then pruned by the second composer install,
+# which leaves the production dependencies the image carries.
 FROM composer:2 AS vendor
 ARG SUITECRM_VERSION
 WORKDIR /app
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --no-interaction --no-progress --no-scripts --classmap-authoritative
+RUN composer install --no-interaction --no-progress --no-scripts
 COPY scripts/extensions-catalog.php ./
-RUN php extensions-catalog.php "$SUITECRM_VERSION" vendor catalog
+RUN php -d phar.readonly=0 extensions-catalog.php "$SUITECRM_VERSION" vendor catalog \
+ && composer install --no-dev --no-interaction --no-progress --no-scripts --classmap-authoritative
 
 FROM php:${PHP_VERSION}-apache AS base
 
@@ -104,10 +108,11 @@ COPY scripts/mail.php /usr/local/share/suitecrm/mail.php
 # by the image itself.
 COPY database/ /usr/local/share/suitecrm/database/
 COPY --from=vendor /app/vendor /usr/local/share/suitecrm/database/vendor
-# Extensions of the image and their activation (EXTENSIONS, at each start),
-# with the Quick Repair they need and their install/uninstall scripts.
+# Module Loader packages of the extensions of the image, put at each start in
+# the list of available packages of Administration → Chargeur de module
+# (scripts/packages.php), where the administrator installs them.
 COPY --from=vendor /app/catalog/ /usr/local/share/suitecrm/extensions/
-COPY scripts/repair.php scripts/extension-script.php /usr/local/share/suitecrm/
+COPY scripts/repair.php scripts/packages.php /usr/local/share/suitecrm/
 
 COPY .docker/apache/suitecrm.conf /etc/apache2/sites-available/000-default.conf
 COPY .docker/php/suitecrm.ini /usr/local/etc/php/conf.d/suitecrm.ini
@@ -119,7 +124,7 @@ ENV TRUSTED_PROXIES=127.0.0.1,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
 COPY --chmod=755 .docker/entrypoint.sh /usr/local/bin/suitecrm-entrypoint
 COPY --chmod=755 scripts/install.sh /usr/local/bin/suitecrm-install
 COPY --chmod=755 .docker/cron.sh /usr/local/bin/suitecrm-cron
-COPY --chmod=755 scripts/extensions.sh /usr/local/bin/suitecrm-extensions
+COPY --chmod=755 scripts/migrate-extensions.sh /usr/local/bin/suitecrm-migrate-extensions
 
 WORKDIR /var/www/html
 

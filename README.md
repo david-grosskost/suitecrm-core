@@ -58,34 +58,41 @@ Les extensions (modèle :
 [suitecrm-extension-template](https://github.com/david-grosskost/suitecrm-extension-template))
 sont des paquets Composer de type `suitecrm-extension`.
 
-- **Catalogue** : celles que `composer.json` requiert sont mises dans l'image au
-  build (`scripts/extensions-catalog.php`). Une extension non compatible avec la
-  version de SuiteCRM de l'image (clé `suitecrm` de son `extension.json`) fait
-  échouer le build.
-- **Activation** : `EXTENSIONS` (`.env`, ou `.env.local` pour une instance)
-  liste celles que l'instance fait tourner, séparées par des virgules. À chaque
-  démarrage, `suitecrm-extensions` les installe dans l'application, retire
-  celles qui ne sont plus listées, et lance une réparation rapide quand la
-  liste ou leur contenu change.
-- Une extension n'écrase jamais un fichier de `public/legacy/custom/` qui ne
-  vient pas d'elle : le démarrage s'arrête avec le nom du fichier.
-- **Chargeur de module ou `EXTENSIONS`, jamais les deux** : chaque extension
-  publie aussi un paquet pour le Chargeur de module de SuiteCRM (joint à ses
-  releases GitHub). Une extension installée par ce Chargeur a ses fichiers dans
-  `custom/` : listée en plus dans `EXTENSIONS`, elle bloque le démarrage (règle
-  ci-dessus). La désinstaller d'abord (Administration → Chargeur de module),
-  puis l'ajouter à `EXTENSIONS`.
+- **Catalogue** : celles que `composer.json` requiert sont construites au build de
+  l'image en paquets pour le Chargeur de module — les mêmes zips que les extensions
+  joignent à leurs releases (`scripts/extensions-catalog.php`, qui utilise
+  suitecrm-devkit). Une extension non compatible avec la version de SuiteCRM de
+  l'image (clé `suitecrm` de son `extension.json`) fait échouer le build.
+- **Installation** : tout passe par **Administration › Chargeur de module**, seul
+  endroit qui fait foi. À chaque démarrage, l'entrypoint (`scripts/packages.php sync`)
+  dépose les paquets de l'image dans la liste des paquets disponibles et retire les
+  versions précédentes qu'il y avait déposées. Il n'installe et ne désinstalle jamais
+  rien de lui-même.
+- **Mise à jour** : une extension déjà installée dont l'image apporte une version plus
+  récente est mise à jour au démarrage, sans désinstallation : elle garde ses données,
+  et son `database/install.php` ne tourne pas à nouveau (suitecrm-devkit).
+- **Nouvelle instance** : `extra.suitecrm.required-extensions` de `composer.json`
+  (aujourd'hui `upstream-fixes`, les correctifs de SuiteCRM lui-même) est installé
+  d'office à l'installation, par `suitecrm-install`. Un administrateur peut le
+  désinstaller ensuite.
+- **En ligne de commande**, la même chose que les boutons du Chargeur :
+
+  ```bash
+  make extensions@list
+  make extensions@install SLUGS="pwa login-background"
+  make extensions@uninstall SLUGS="login-background"
+  ```
+
 - **Front (Angular)** : le module Angular déjà compilé d'une extension
   (`public/`, déclaré par son `config/extension.php`) va dans
   `extensions/<Nom>/public/` ; SuiteCRM le recopie dans `public/extensions/<Nom>/`
   en reconstruisant son cache, et le charge au démarrage de l'interface. Le front
   de SuiteCRM n'est jamais recompilé.
-- **Scripts d'installation** : `database/install.php` d'une extension est lancé
-  une fois, après la réparation rapide de sa première activation ;
-  `database/uninstall.php`, quand elle n'est plus listée, avant que ses fichiers
-  soient retirés (réactivée, elle s'installe de nouveau). Ils tournent dans SuiteCRM, en
-  administrateur (`scripts/extension-script.php`), par exemple pour écrire un
-  panneau dans une mise en page de Studio, puis le retirer.
+- **Scripts d'installation** : `database/install.php` d'une extension est lancé une
+  fois, à son installation, après la réparation rapide ; `database/uninstall.php` à sa
+  désinstallation, avant que ses fichiers soient retirés (réinstallée, elle s'installe
+  de nouveau). Ils tournent dans SuiteCRM, en administrateur, par exemple pour écrire
+  un panneau dans une mise en page de Studio, puis le retirer.
 - **Données de démo** : `make db@seed` charge aussi les seeders des extensions
   actives (`database/seeders/<slug>/`, voir [database/README.md](database/README.md)).
 

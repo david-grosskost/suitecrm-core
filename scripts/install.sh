@@ -40,10 +40,9 @@ if [ -n "${MAIL_SMTP_HOST:-}" ]; then
   php /usr/local/share/suitecrm/mail.php
 fi
 
-# Extensions activated by the entrypoint before the install: Quick Repair
-# merges them, and creates the fields they add; then their install scripts.
-if [ -s .extensions/active ]; then
-  php /usr/local/share/suitecrm/repair.php
-  mapfile -t active < .extensions/active
-  php /usr/local/share/suitecrm/extension-script.php install "${active[@]}"
-fi
+# Extensions a new instance gets without being asked (composer.json,
+# extra.suitecrm.required-extensions): the fixes of SuiteCRM itself. The others
+# are installed from Administration → Chargeur de module, or by
+# « make extensions@install ». The entrypoint has already put every package of
+# the image in that list.
+php /usr/local/share/suitecrm/packages.php install --required

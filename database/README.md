@@ -88,8 +88,8 @@ de ses seeders : `database/seeders/core/seeders.php` en est l'exemple. Le lanceu
 tous, puis les ordonne selon leurs dépendances.
 
 Une extension fait de même dans **son** dépôt : `database/seeders/<slug>/seeders.php`. Le
-lanceur prend les seeders des extensions **actives** de l'instance (`EXTENSIONS`), en plus de
-ceux du core. Pour compléter les enregistrements d'un autre seeder (ex. les champs d'une
+lanceur prend les seeders des extensions **installées** sur l'instance (Administration ›
+Chargeur de module), en plus de ceux du core. Pour compléter les enregistrements d'un autre seeder (ex. les champs d'une
 extension sur les comptes), le seeder le déclare dans `dependsOn()` et écrit avec
 `$seed->update($bean, $champs)`. Exemple :
 [suitecrm-ext-french-company-fields](https://github.com/david-grosskost/suitecrm-ext-french-company-fields)
