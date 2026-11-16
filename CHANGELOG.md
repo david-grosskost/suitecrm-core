@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.24.1](https://github.com/david-grosskost/suitecrm-core/compare/v0.24.0...v0.24.1) (2026-11-16)
+
+
+### Bug Fixes
+
+* take upstream-fixes 0.2.1 and french-company-fields 0.2.2 ([#85](https://github.com/david-grosskost/suitecrm-core/issues/85)) ([516cb39](https://github.com/david-grosskost/suitecrm-core/commit/516cb393e0634adffb62da3473d8be52bdc6e5e8))
+
 ## [0.24.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.23.0...v0.24.0) (2026-11-14)
 
 
