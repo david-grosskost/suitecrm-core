@@ -24,13 +24,22 @@ done
 # The silent-install config holds the passwords in clear.
 rm -f public/legacy/config_si.php
 
-# Shared base configuration (French defaults), everything but its "<?php" line.
-# A closing "?>" would turn the appended lines into plain text: remove it first.
+# Shared base configuration, everything but its "<?php" line. A closing "?>"
+# would turn the appended lines into plain text: remove it first.
 override=public/legacy/config_override.php
 sed -i '/^?>[[:space:]]*$/d' "$override"
 echo >> "$override"
 tail -n +2 /usr/local/share/suitecrm/config_override.php >> "$override"
-echo "  Configuration de base appliquée (français par défaut)."
+echo "  Configuration de base appliquée."
+
+# Extensions a new instance gets without being asked (composer.json,
+# extra.suitecrm.required-extensions): the fixes of SuiteCRM itself, and the
+# French settings of french-locale. The others are installed from
+# Administration → Chargeur de module, or by « make extensions@install ».
+# The entrypoint has already put every package of the image in that list.
+# Before post-install.php: that one aligns the administrator on the
+# configuration, which french-locale has just made French.
+php /usr/local/share/suitecrm/packages.php install --required
 
 # The admin was created before the base configuration: align its preferences.
 php /usr/local/share/suitecrm/post-install.php
@@ -39,10 +48,3 @@ php /usr/local/share/suitecrm/post-install.php
 if [ -n "${MAIL_SMTP_HOST:-}" ]; then
   php /usr/local/share/suitecrm/mail.php
 fi
-
-# Extensions a new instance gets without being asked (composer.json,
-# extra.suitecrm.required-extensions): the fixes of SuiteCRM itself. The others
-# are installed from Administration → Chargeur de module, or by
-# « make extensions@install ». The entrypoint has already put every package of
-# the image in that list.
-php /usr/local/share/suitecrm/packages.php install --required

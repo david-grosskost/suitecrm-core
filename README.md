@@ -1,8 +1,11 @@
 # suitecrm-core
 
 Socle commun des projets SuiteCRM : une image Docker de **SuiteCRM 8** en français
-(Apache, PHP 8.4, pack de langue fr_FR, formats français), avec MariaDB et le cron,
-servie derrière le [reverse-proxy](https://github.com/david-grosskost/reverse-proxy).
+(Apache, PHP 8.4, pack de langue fr_FR), avec MariaDB et le cron, servie derrière le
+[reverse-proxy](https://github.com/david-grosskost/reverse-proxy). Les compléments de
+traduction et les formats français viennent de l'extension
+[french-locale](https://github.com/david-grosskost/suitecrm-ext-french-locale), installée
+d'office.
 
 Les projets clients partent de l'image publiée par ce dépôt :
 
@@ -71,10 +74,11 @@ sont des paquets Composer de type `suitecrm-extension`.
 - **Mise à jour** : une extension déjà installée dont l'image apporte une version plus
   récente est mise à jour au démarrage, sans désinstallation : elle garde ses données,
   et son `database/install.php` ne tourne pas à nouveau (suitecrm-devkit).
-- **Nouvelle instance** : `extra.suitecrm.required-extensions` de `composer.json`
-  (aujourd'hui `upstream-fixes`, les correctifs de SuiteCRM lui-même) est installé
-  d'office à l'installation, par `suitecrm-install`. Un administrateur peut le
-  désinstaller ensuite.
+- **Nouvelle instance** : les extensions de `extra.suitecrm.required-extensions` de
+  `composer.json` (aujourd'hui `upstream-fixes`, les correctifs de SuiteCRM lui-même, et
+  `french-locale`, la langue et les formats français) sont installées d'office à
+  l'installation, par `suitecrm-install`, avant que les préférences de l'administrateur
+  soient alignées sur la configuration. Un administrateur peut les désinstaller ensuite.
 - **En ligne de commande**, la même chose que les boutons du Chargeur :
 
   ```bash
