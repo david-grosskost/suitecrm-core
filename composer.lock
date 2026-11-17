@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0dd3b538867b52f588593629f9affb9",
+    "content-hash": "32b8e13dbcf61a129bb1e98223cb532c",
     "packages": [
         {
             "name": "composer/semver",
@@ -186,6 +186,39 @@
             ],
             "description": "Format monétaire français dans SuiteCRM 8 : symbole après le montant.",
             "time": "2026-11-12T21:35:07+00:00"
+        },
+        {
+            "name": "david-grosskost/suitecrm-ext-french-locale",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/david-grosskost/suitecrm-ext-french-locale",
+                "reference": "42c4c22ba52043d97892b079b8b26e24181f0e17"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-french-locale/zipball/42c4c22ba52043d97892b079b8b26e24181f0e17",
+                "reference": "42c4c22ba52043d97892b079b8b26e24181f0e17",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.4"
+            },
+            "require-dev": {
+                "david-grosskost/suitecrm-devkit": "^0.26"
+            },
+            "type": "suitecrm-extension",
+            "autoload-dev": {
+                "psr-4": {
+                    "SuiteCrmExt\\FrenchLocale\\": "legacy/include/french-locale/",
+                    "SuiteCrmExt\\FrenchLocale\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Compléments du pack de langue français et réglages français par défaut pour SuiteCRM 8.",
+            "time": "2026-11-17T13:25:12+00:00"
         },
         {
             "name": "david-grosskost/suitecrm-ext-login-background",
