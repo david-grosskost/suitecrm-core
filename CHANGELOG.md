@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.26.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.25.0...v0.26.0) (2026-11-17)
+
+
+### Features
+
+* take the French labels and settings from french-locale ([#89](https://github.com/david-grosskost/suitecrm-core/issues/89)) ([4627b66](https://github.com/david-grosskost/suitecrm-core/commit/4627b661819d3f64c2fd863ad714e1cf97bd281c))
+
 ## [0.25.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.24.1...v0.25.0) (2026-11-16)
 
 
