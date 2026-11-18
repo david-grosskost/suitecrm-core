@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.27.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.26.0...v0.27.0) (2026-11-18)
+
+
+### Features
+
+* carry the vertical theme in the image ([#94](https://github.com/david-grosskost/suitecrm-core/issues/94)) ([dfd0186](https://github.com/david-grosskost/suitecrm-core/commit/dfd018682675d979546b0f373e833c788db4171f))
+
+
+### Bug Fixes
+
+* tell browsers what they may keep of the front-end ([#91](https://github.com/david-grosskost/suitecrm-core/issues/91)) ([c47aae9](https://github.com/david-grosskost/suitecrm-core/commit/c47aae9b88a1f75e399891cb947b4b47b02f4c6e))
+
+
+### Performance Improvements
+
+* keep the Composer downloads between image builds ([#92](https://github.com/david-grosskost/suitecrm-core/issues/92)) ([bbeb5c5](https://github.com/david-grosskost/suitecrm-core/commit/bbeb5c51c073582267ccacb18be6563a48aa7d7a))
+
 ## [0.26.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.25.0...v0.26.0) (2026-11-17)
 
 
