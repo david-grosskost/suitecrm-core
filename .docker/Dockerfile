@@ -23,9 +23,16 @@ FROM composer:2 AS vendor
 ARG SUITECRM_VERSION
 WORKDIR /app
 COPY composer.json composer.lock ./
-RUN composer install --no-interaction --no-progress --no-scripts
+# The downloads are kept between builds: without that, every rebuild of the
+# image fetches all the dependencies again, and GitHub ends up refusing to
+# serve them (HTTP 429) to an instance rebuilt a dozen times in a morning.
+RUN --mount=type=cache,target=/tmp/composer-cache,sharing=locked \
+    COMPOSER_CACHE_DIR=/tmp/composer-cache \
+    composer install --no-interaction --no-progress --no-scripts
 COPY scripts/extensions-catalog.php ./
-RUN php -d phar.readonly=0 extensions-catalog.php "$SUITECRM_VERSION" vendor catalog \
+RUN --mount=type=cache,target=/tmp/composer-cache,sharing=locked \
+    COMPOSER_CACHE_DIR=/tmp/composer-cache \
+    php -d phar.readonly=0 extensions-catalog.php "$SUITECRM_VERSION" vendor catalog \
  && composer install --no-dev --no-interaction --no-progress --no-scripts --classmap-authoritative
 
 FROM php:${PHP_VERSION}-apache AS base
