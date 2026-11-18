@@ -48,10 +48,16 @@
             "type": "vcs",
             "url": "https://github.com/david-grosskost/suitecrm-ext-pwa",
             "no-api": true
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/david-grosskost/suitecrm-ext-custom-theme",
+            "no-api": true
         }
     ],
     "require": {
         "composer/semver": "^3.4",
+        "david-grosskost/suitecrm-ext-custom-theme": "^0.1",
         "david-grosskost/suitecrm-ext-french-company-fields": "^0.2",
         "david-grosskost/suitecrm-ext-french-company-validation": "^0.1",
         "david-grosskost/suitecrm-ext-french-currency-format": "^0.1",
