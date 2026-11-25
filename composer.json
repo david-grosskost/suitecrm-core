@@ -77,7 +77,7 @@
         }
     },
     "require-dev": {
-        "david-grosskost/suitecrm-devkit": "^0.26"
+        "david-grosskost/suitecrm-devkit": "^0.28"
     },
     "config": {
         "platform": {
