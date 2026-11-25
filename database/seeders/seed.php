@@ -66,4 +66,9 @@ try {
 } catch (RuntimeException $exception) {
     fwrite(STDERR, $exception->getMessage() . "\n");
     exit(1);
+} catch (Throwable $error) {
+    // A broken seeder (missing file, PHP error): said, instead of a silent
+    // exit code 255.
+    fwrite(STDERR, sprintf("seed : %s dans %s:%d\n", $error->getMessage(), $error->getFile(), $error->getLine()));
+    exit(1);
 }

@@ -11,4 +11,9 @@ on:
 
 jobs:
   checks:
-    uses: david-grosskost/suitecrm-devkit/.github/workflows/checks.yml@v0.26.0
+    uses: david-grosskost/suitecrm-devkit/.github/workflows/checks.yml@v0.29.0
+
+  # Installs an instance with every extension and goes through the main
+  # screens (make test@regression).
+  regression:
+    uses: david-grosskost/suitecrm-devkit/.github/workflows/regression.yml@v0.29.0

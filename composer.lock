@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7fcdf5f2b4c375eed4014e099927f822",
+    "content-hash": "94cde886cf4b8378586dbd737c72cd78",
     "packages": [
         {
             "name": "composer/semver",
@@ -119,23 +119,23 @@
         },
         {
             "name": "david-grosskost/suitecrm-ext-french-company-fields",
-            "version": "v0.2.2",
+            "version": "v0.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/david-grosskost/suitecrm-ext-french-company-fields",
-                "reference": "aebd129bc8ed2ee3900a47f7609f32b24bc45d0c"
+                "reference": "d225cedf9d3db09c9e654a5677128348e8b3980d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-french-company-fields/zipball/aebd129bc8ed2ee3900a47f7609f32b24bc45d0c",
-                "reference": "aebd129bc8ed2ee3900a47f7609f32b24bc45d0c",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-french-company-fields/zipball/d225cedf9d3db09c9e654a5677128348e8b3980d",
+                "reference": "d225cedf9d3db09c9e654a5677128348e8b3980d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.4"
             },
             "require-dev": {
-                "david-grosskost/suitecrm-devkit": "^0.25"
+                "david-grosskost/suitecrm-devkit": "^0.26"
             },
             "type": "suitecrm-extension",
             "autoload-dev": {
@@ -149,7 +149,7 @@
                 "proprietary"
             ],
             "description": "Champs des entreprises françaises sur les comptes SuiteCRM : SIRET, code NAF, forme juridique.",
-            "time": "2026-11-14T09:57:06+00:00"
+            "time": "2026-11-25T19:07:10+00:00"
         },
         {
             "name": "david-grosskost/suitecrm-ext-french-company-validation",
@@ -791,16 +791,16 @@
         },
         {
             "name": "david-grosskost/suitecrm-devkit",
-            "version": "v0.28.0",
+            "version": "v0.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/david-grosskost/suitecrm-devkit",
-                "reference": "d01f111a7678e86ac3a734c765de63e1a5f558bc"
+                "reference": "dbe98ee0ee3e61d163edc76de56f0c193bff0aa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/d01f111a7678e86ac3a734c765de63e1a5f558bc",
-                "reference": "d01f111a7678e86ac3a734c765de63e1a5f558bc",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/dbe98ee0ee3e61d163edc76de56f0c193bff0aa4",
+                "reference": "dbe98ee0ee3e61d163edc76de56f0c193bff0aa4",
                 "shasum": ""
             },
             "require": {
@@ -814,7 +814,7 @@
                 "proprietary"
             ],
             "description": "Shared tooling of the SuiteCRM projects: make commands, Git hooks, quality configs, CI workflows.",
-            "time": "2026-11-25T17:16:36+00:00"
+            "time": "2026-11-25T18:05:13+00:00"
         },
         {
             "name": "ergebnis/agent-detector",
