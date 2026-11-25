@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5f3d097679f850bd020f12cf024ffae",
+    "content-hash": "7fcdf5f2b4c375eed4014e099927f822",
     "packages": [
         {
             "name": "composer/semver",
@@ -222,16 +222,16 @@
         },
         {
             "name": "david-grosskost/suitecrm-ext-french-locale",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/david-grosskost/suitecrm-ext-french-locale",
-                "reference": "42c4c22ba52043d97892b079b8b26e24181f0e17"
+                "reference": "23a91655c9a9be62df55e963a44452b072919a45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-french-locale/zipball/42c4c22ba52043d97892b079b8b26e24181f0e17",
-                "reference": "42c4c22ba52043d97892b079b8b26e24181f0e17",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-french-locale/zipball/23a91655c9a9be62df55e963a44452b072919a45",
+                "reference": "23a91655c9a9be62df55e963a44452b072919a45",
                 "shasum": ""
             },
             "require": {
@@ -251,7 +251,7 @@
                 "proprietary"
             ],
             "description": "Compléments du pack de langue français et réglages français par défaut pour SuiteCRM 8.",
-            "time": "2026-11-17T13:25:12+00:00"
+            "time": "2026-11-25T17:21:32+00:00"
         },
         {
             "name": "david-grosskost/suitecrm-ext-login-background",
@@ -791,16 +791,16 @@
         },
         {
             "name": "david-grosskost/suitecrm-devkit",
-            "version": "v0.26.1",
+            "version": "v0.28.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/david-grosskost/suitecrm-devkit",
-                "reference": "10ff46dd33297ad2fb2e19686db5cba69bdae008"
+                "reference": "d01f111a7678e86ac3a734c765de63e1a5f558bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/10ff46dd33297ad2fb2e19686db5cba69bdae008",
-                "reference": "10ff46dd33297ad2fb2e19686db5cba69bdae008",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-devkit/zipball/d01f111a7678e86ac3a734c765de63e1a5f558bc",
+                "reference": "d01f111a7678e86ac3a734c765de63e1a5f558bc",
                 "shasum": ""
             },
             "require": {
@@ -814,7 +814,7 @@
                 "proprietary"
             ],
             "description": "Shared tooling of the SuiteCRM projects: make commands, Git hooks, quality configs, CI workflows.",
-            "time": "2026-11-16T21:16:39+00:00"
+            "time": "2026-11-25T17:16:36+00:00"
         },
         {
             "name": "ergebnis/agent-detector",
