@@ -36,7 +36,7 @@ services:
       - ./data/db:/var/lib/mysql
 
   mailpit:
-    image: axllent/mailpit:v1.33.1
+    image: axllent/mailpit:v1.34.0
     container_name: ${APP_SLUG}-mailpit
     restart: unless-stopped
     environment:
