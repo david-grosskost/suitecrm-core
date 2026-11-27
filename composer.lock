@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94cde886cf4b8378586dbd737c72cd78",
+    "content-hash": "e97fa33aca859ce9be7b8c34130f59dd",
     "packages": [
         {
             "name": "composer/semver",
@@ -86,23 +86,23 @@
         },
         {
             "name": "david-grosskost/suitecrm-ext-custom-theme",
-            "version": "v0.1.0",
+            "version": "v0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/david-grosskost/suitecrm-ext-custom-theme",
-                "reference": "c39cad0acaec9984375df4c5873bb585a4730018"
+                "reference": "a74bbcce8a40b0e3b033a79289240b1b3a274e8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-custom-theme/zipball/c39cad0acaec9984375df4c5873bb585a4730018",
-                "reference": "c39cad0acaec9984375df4c5873bb585a4730018",
+                "url": "https://api.github.com/repos/david-grosskost/suitecrm-ext-custom-theme/zipball/a74bbcce8a40b0e3b033a79289240b1b3a274e8f",
+                "reference": "a74bbcce8a40b0e3b033a79289240b1b3a274e8f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.4"
             },
             "require-dev": {
-                "david-grosskost/suitecrm-devkit": "^0.26"
+                "david-grosskost/suitecrm-devkit": "^0.30"
             },
             "type": "suitecrm-extension",
             "autoload-dev": {
@@ -115,7 +115,7 @@
                 "proprietary"
             ],
             "description": "Rail vertical et couleurs de l'entreprise pour SuiteCRM 8.",
-            "time": "2026-11-18T16:11:44+00:00"
+            "time": "2026-11-27T08:49:24+00:00"
         },
         {
             "name": "david-grosskost/suitecrm-ext-french-company-fields",
