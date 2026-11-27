@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.27.2](https://github.com/david-grosskost/suitecrm-core/compare/v0.27.1...v0.27.2) (2026-11-27)
+
+
+### Bug Fixes
+
+* **deps:** bump david-grosskost/suitecrm-ext-custom-theme from 0.3.0 to 0.3.1 in the minor-and-patch group ([#102](https://github.com/david-grosskost/suitecrm-core/issues/102)) ([7b9c39c](https://github.com/david-grosskost/suitecrm-core/commit/7b9c39c86d2395b10c0015da489bcf84fcabd716))
+
 ## [0.27.1](https://github.com/david-grosskost/suitecrm-core/compare/v0.27.0...v0.27.1) (2026-11-27)
 
 
