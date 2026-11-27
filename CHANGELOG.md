@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.27.1](https://github.com/david-grosskost/suitecrm-core/compare/v0.27.0...v0.27.1) (2026-11-27)
+
+
+### Bug Fixes
+
+* **deps:** bump axllent/mailpit from v1.33.1 to v1.34.0 in the minor-and-patch group ([#97](https://github.com/david-grosskost/suitecrm-core/issues/97)) ([a677b77](https://github.com/david-grosskost/suitecrm-core/commit/a677b77ffb6dfeca1af9fe90c966b356820b2b8b))
+
 ## [0.27.0](https://github.com/david-grosskost/suitecrm-core/compare/v0.26.0...v0.27.0) (2026-11-18)
 
 
